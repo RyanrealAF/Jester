@@ -26,7 +26,8 @@ export function transformShow(raw: RawRadioShow): RadioShow {
     date: raw.date_of_generation,
     host: raw.timecoded_transcript[0]?.speaker || "Feste",
     coverImage: raw.coverImage || "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop",
-    audioUrl: raw.audioUrl || "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    // Generated episodes must provide their real audio URL. Never silently substitute demo audio.
+    audioUrl: raw.audioUrl || "",
     notesUrl: raw.notesUrl,
     transcript,
     editorialAnalysis: raw.editorial_analysis || (raw as any).editorialAnalysis || `### Editorial Deconstruction: Vibe Coding, Valve CAD, & SQLite
