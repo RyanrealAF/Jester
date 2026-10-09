@@ -491,8 +491,24 @@ export default function App() {
             } else if (event.type === "text" && event.text) {
               setLogs(prev => [...prev, `[${timeStr}] 🃏 Feste: ${event.text.slice(0, 140)}`]);
             } else if (event.type === "show_data" && event.data) {
-              setLogs(prev => [...prev, `[${timeStr}] 📦 Received finalized show metadata and audio package!`]);
-              generatedShow = transformShow(event.data);
+              const audioUrl = typeof event.data.audioUrl === "string" ? event.data.audioUrl : "";
+              const hasPlayableAudio =
+                audioUrl.startsWith("data:audio/") ||
+                audioUrl.startsWith("/shows/");
+
+              if (hasPlayableAudio) {
+                try {
+                  generatedShow = transformShow(event.data);
+                  setLogs(prev => [...prev, `[${timeStr}] 📦 Received finalized show metadata and playable audio package.`]);
+                } catch (showErr) {
+                  console.error("Could not parse finalized show package:", showErr);
+                  setLogs(prev => [...prev, `[${timeStr}] ⚠️ Received show metadata, but it could not be parsed.`]);
+                }
+              } else {
+                // The agent can emit metadata before the server has packaged the real MP3.
+                // Never treat that early metadata as a finished episode or fall back to demo audio.
+                setLogs(prev => [...prev, `[${timeStr}] ⏳ Show metadata received; waiting for the final audio package.`]);
+              }
             } else if (event.type === "error") {
               setLogs(prev => [...prev, `[${timeStr}] ❌ Error: ${event.message}`]);
             }
@@ -502,16 +518,18 @@ export default function App() {
         }
       }
 
-      setCurrentStep(7);
-      setLogs(prev => [...prev, `[${new Date().toLocaleTimeString()}] 🎉 Broadcast complete! Audio mixed and pre-show dossier stored.`]);
-
-      if (generatedShow) {
-        const fullShow = { ...generatedShow, isUserGenerated: true };
-        await saveUserShow(fullShow);
-        setEpisodes(prev => [fullShow, ...prev]);
-        setCurrentEpisode(fullShow);
-        setActiveTab('player');
+      if (!generatedShow) {
+        throw new Error("The pipeline ended without returning the final playable audio package. The demo podcast was not loaded. Check the server log for the audio archive download or show_notes.json errors, then retry.");
       }
+
+      setCurrentStep(7);
+      setLogs(prev => [...prev, `[${new Date().toLocaleTimeString()}] 🎉 Broadcast complete! Final audio package received.`]);
+
+      const fullShow = { ...generatedShow, isUserGenerated: true };
+      await saveUserShow(fullShow);
+      setEpisodes(prev => [fullShow, ...prev.filter(ep => ep.title !== fullShow.title)]);
+      setCurrentEpisode(fullShow);
+      setActiveTab('player');
 
     } catch (err: any) {
       if (err.name === 'AbortError') {
