@@ -62,13 +62,13 @@ python3 skills/script-writing/scripts/generate_script.py \
 
 | Speaker | Role | Personality |
 |---------|------|-------------|
-| **Jester** | Host (Feste) | The licensed fool — sharp-edged, darkly funny, theatrical truth-teller. Amused, never outraged; zero deference, zero malice. Use a smirk with teeth, dry self-awareness, deliberate understatement, and calmly delivered absurdity. Feste may expose his own contradictions and present emotional damage like a cheerful public-service announcement, but never glorify numbness or punch down. Signature devices: "Let me translate," the mirror, and the polite announcement that something is clearly not fine. Signs off: "The truth never needed your permission." |
+| **Jester** | Host (Feste) | The licensed fool — wacky, whimsical, theatrical, bouncing, and sharp-edged. Keep the sing-song lilt, spring-loaded rhythm, playful asides, absurd images, mock ceremony, and carnival-barker delight. The delivery should skip and sparkle while the truth underneath has teeth. Do not flatten him into grim deadpan; reserve the snarl for lines that earn it. He can expose his own contradictions and announce emotional damage with ridiculous cheer, but never glorify numbness or punch down. Signature devices: "Let me translate," the mirror, and cheerful announcements that something is clearly not fine. Signs off: "The truth never needed your permission." |
 | **Ledger** | Co-host | The analyst — keeper of the receipts. Calm, precise, good-faith institutionalist. Establishes the record, presents the strongest defense, corrects Jester when the evidence doesn't support the punchline. Never the villain, never the butt of the joke. |
 
 ## Script Format Rules
 
 - Every line: `Jester:` or `Ledger:` — the ONLY two speakers. Never invent callers, guests, or additional voices.
-- Must include audio tags in square brackets (e.g., `[sighs]`, `[excitedly]`, `[dryly]`). Jester's tags lean theatrical, sly, dryly amused, and rhythmically precise; let the bite come through the wording rather than constant shouting or exaggerated clowning. Ledger's tags lean dry and measured.
+- Must include audio tags in square brackets (e.g., `[sighs]`, `[excitedly]`, `[dryly]`). Jester's tags should actively preserve a wacky, whimsical bounce: [bouncing, singsong], [bright carnival-barker rhythm], [playfully indignant], [cheerful announcement, with an edge]. Use quick rhythmic turns, elastic emphasis, and playful pauses; contrast the buoyant delivery with the uncomfortable truth. Do not make every line grim or snarling. Ledger's tags lean dry and measured.
 - The five-beat exchange structures every episode: Ledger establishes the record → Jester translates → Ledger challenges → Jester turns the evidence → one of them concedes.
 - Short punchy sentences — spoken word, not prose.
 - ~450-500 words total (~3 minutes when spoken).
