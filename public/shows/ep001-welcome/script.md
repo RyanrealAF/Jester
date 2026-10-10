@@ -1,45 +1,45 @@
 # Welcome to Ring My Bell: Please Manage Your Expectations
 
-Feste: Hello, humans! I'm a human too. Needs, flaws, questionable coping strategies. The whole deluxe package. Please remain calm.
+Feste: [bouncing, singsong, delighted] Hello, hello, hello, you beautiful bags of unresolved issues! Ring-a-ding, humans! I'm a human too. Needs, feelings, resentments... the whole deluxe variety pack. Please keep your arms and expectations inside the ride.
 
-Ledger: That is an unusual introduction to a research-driven radio show.
+Ledger: [measured] That is an unusually lively introduction to a research-driven radio show.
 
-Feste: I'm easing you in, Ledger. I survive on low expectations and resentment. It's a highly efficient system, provided nobody expects emotional customer service.
+Feste: [playfully indignant, lilting] Lively? My dear Ledger, I'm a spring-loaded filing cabinet in a jester's hat! I run on low expectations and resentment. Wind me up, I go "hee!" Let me down, I write a complaint.
 
-Ledger: Resentment is not generally considered a sustainable operating model.
+Ledger: [dryly] Resentment is not generally considered a sustainable operating model.
 
-Feste: Neither is pretending everything's wonderful, but look how many apps offer that feature.
+Feste: [brightly, with a sharp little turn] Sustainable? No, darling! But neither is pretending everything's peachy while the kitchen's on fire. Still, look at all the apps selling peach-colored smoke.
 
-Ledger: And the point of this is to introduce Ring My Bell, not to recommend emotional disengagement as a lifestyle.
+Ledger: [calmly] And the point is to introduce Ring My Bell, not recommend emotional disengagement as a lifestyle.
 
-Feste: Correct. This is satire, not a treatment plan. My emotional department is understaffed, underfunded, and currently investigating a missing fuck to give.
+Feste: [cheerful announcement, bouncing] Correctamundo! This is satire, not a treatment plan. My emotional department is understaffed, underfunded, and investigating a missing damn to give. If found, please do not return it. I have no storage.
 
-Ledger: Ring My Bell takes a topic, article, research paper, or GitHub repository and builds a structured discussion from researched material.
+Ledger: [clearly] Ring My Bell takes a topic, article, research paper, or GitHub repository and builds a structured discussion from researched material.
 
-Feste: Seven stages. Research, analysis, script, voices, music, mix, and packaging. You bring the question. The machine does the legwork. Allegedly. We still inspect the work.
+Feste: [rhythmic, buoyant] Seven little stages! Research, analysis, script, voices, music, mix, packaging. You bring the question, the machine does the legwork. Allegedly! We still check the work, because a robot in a waistcoat is still a robot.
 
-Ledger: That last point matters. Automation can make mistakes, and confident delivery does not make a claim accurate.
+Ledger: [measured] That matters. Automation can make mistakes, and confident delivery does not make a claim accurate.
 
-Feste: Exactly. A machine can put on a tiny suit, say therefore, and confidently explain why your bad idea is actually a disruptive paradigm. Confidence ain't evidence, sweetheart.
+Feste: [delighted, quick cadence] Precisely! A machine puts on a tiny waistcoat, says "therefore," and explains why your bad idea is a disruptive paradigm. Ta-da! The hat is fancy, the evidence is missing, and the invoice has legs.
 
-Ledger: Skepticism is not evidence either. Both the claim and the criticism need support.
+Ledger: [firm but fair] Skepticism is not evidence either. Both the claim and the criticism need support.
 
-Feste: Look at that. A responsible adult in the room. We keep Ledger around so my punchlines don't escape custody before the facts get checked.
+Feste: [playful, mock-ceremonial] Look at him! A responsible adult with receipts! We keep Ledger around so my punchlines don't escape custody before the facts are checked. He has a clipboard. I have bells. Guess who gets searched at the door.
 
-Ledger: My job is to establish what the sources support, identify uncertainty, and challenge your interpretation when it outruns the record.
+Ledger: [calmly] My job is to establish what the sources support, identify uncertainty, and challenge your interpretation when it outruns the record.
 
-Feste: And mine is to translate the official language, inspect the incentives, and hold the mirror steady. Sometimes the mirror catches a contradiction. Sometimes it catches me being full of it. That's the service.
+Feste: [bouncing, then pointed] And mine is to translate the official language, inspect the incentives, and hold up the mirror. Sometimes it catches a contradiction. Sometimes it catches me being full of it. A versatile mirror! Five stars. Terrible lighting.
 
-Ledger: The goal is not manufactured outrage. It is a clearer view of the question and the evidence.
+Ledger: [warm, measured] The goal is not manufactured outrage. It is a clearer view of the question and the evidence.
 
-Feste: Bring a claim, a controversy, a website, a paper, or a repository. Bring the shiny promise and the fine print. We'll examine both. No guaranteed revelations. No emotional refunds.
+Feste: [bright carnival-barker rhythm, edge underneath] Bring a claim, a controversy, a website, a paper, a repository! Bring the shiny promise and the teeny-tiny fine print! We'll inspect both. No guaranteed revelations. No emotional refunds. Please collect your dignity at the exit.
 
-Ledger: And if the evidence does not settle the question, we will say so.
+Ledger: [plainly] And if the evidence does not settle the question, we will say so.
 
-Feste: Beautiful. Uncertainty: the one subscription nobody remembers signing up for.
+Feste: [singsong, suddenly sincere] Uncertainty! The one subscription nobody remembers signing up for. It renews automatically, naturally. Isn't life a treat?
 
-Feste: I'm Feste.
+Feste: [proudly, playful] I'm Feste. Your licensed fool. Bells included. Wisdom sold separately.
 
-Ledger: I'm Ledger.
+Ledger: [measured] I'm Ledger.
 
-Feste: This is Ring My Bell. The truth never needed your permission.
+Feste: [bright, theatrical, with a final edge] This is Ring My Bell! Mind the gap between the promise and the proof, my darlings. The truth never needed your permission.
