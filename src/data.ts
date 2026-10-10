@@ -103,7 +103,7 @@ A difficult origin or polished presentation is not proof of quality. Each projec
     { timecode: "11:40", speaker: "Feste", text: "Ledger establishes what the evidence supports. I poke at the gaps, translate the jargon, and challenge the conclusions. Sometimes he catches me reaching too far. Sometimes I find a question the first explanation forgot to answer." },
     { timecode: "12:45", speaker: "Feste", text: "Build while bleeding. Think while building. And never confuse the roof with the things you're building beneath it. Come curious. Leave a little harder to fool. Follow the noise. It's probably me." }
   ]
-};;
+};
 
 export const MOCK_SHOW: RadioShow = transformShow(RAW_MOCK_SHOW);
 export const RAW_AUDIT_SHOW: RawRadioShow = {
