@@ -428,7 +428,9 @@ export default function App() {
     let generatedShow: RadioShow | null = null;
 
     try {
-      const response = await fetch('/api/generate-show', {
+      // Submit the generation as an async job — the server queues it and returns immediately.
+      // Progress is polled below; this keeps generation working on static hosting.
+      const submitRes = await fetch('/api/generate-show', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -436,98 +438,101 @@ export default function App() {
           fileName: attachedFile?.name,
           fileContent: attachedFile?.content,
           duration: "3",
-          mood: "Mischievous & Rigorous",
-          generationId: genId
+          mood: "Mischievous & Rigorous"
         }),
         signal: abortControllerRef.current.signal
       });
 
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`Server returned HTTP ${response.status}: ${errorText}`);
+      if (!submitRes.ok) {
+        const errorText = await submitRes.text();
+        throw new Error(`Server returned HTTP ${submitRes.status}: ${errorText}`);
       }
 
-      const reader = response.body?.getReader();
-      if (!reader) throw new Error("No response body stream received from server.");
+      const { jobId } = await submitRes.json();
+      if (!jobId) throw new Error("Server did not return a job ID.");
+      generationIdRef.current = jobId;
+      setLogs(prev => [...prev, `[${new Date().toLocaleTimeString()}] \uD83D\uDEF0\uFE0F Job ${jobId} queued. Polling for progress...`]);
 
-      const decoder = new TextDecoder();
-      let buffer = "";
+      const handleJobEvent = (event: any) => {
+        const timeStr = new Date().toLocaleTimeString();
 
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
+        if (event.type === "info") {
+          setLogs(prev => [...prev, `[${timeStr}] \u2139\uFE0F ${event.message}`]);
+        } else if (event.type === "tool_call") {
+          const cmd = String(event.arguments?.command || event.arguments?.code || event.arguments?.path || event.name || "");
+          setLogs(prev => [...prev, `[${timeStr}] \u26A1 Tool: ${event.name} -> ${cmd.slice(0, 80)}`]);
 
-        buffer += decoder.decode(value, { stream: true });
-        const lines = buffer.split("\n");
-        buffer = lines.pop() ?? "";
-
-        for (const line of lines) {
-          if (!line.trim() || !line.startsWith("data: ")) continue;
-          const dataStr = line.slice(6);
-          if (dataStr === "[DONE]") continue;
-
-          try {
-            const event = JSON.parse(dataStr);
-            const timeStr = new Date().toLocaleTimeString();
-
-            if (event.type === "info") {
-              setLogs(prev => [...prev, `[${timeStr}] ℹ️ ${event.message}`]);
-            } else if (event.type === "tool_call") {
-              const cmd = String(event.arguments?.command || event.arguments?.code || event.arguments?.path || event.name || "");
-              setLogs(prev => [...prev, `[${timeStr}] ⚡ Tool: ${event.name} -> ${cmd.slice(0, 80)}`]);
-
-              if (cmd.includes('research') || cmd.includes('fetch_hn') || cmd.includes('fetch_url') || cmd.includes('fetch_github')) {
-                setCurrentStep(1);
-              } else if (cmd.includes('editorial') || cmd.includes('deconstruction')) {
-                setCurrentStep(2);
-              } else if (cmd.includes('script-writing') || cmd.includes('generate_script')) {
-                setCurrentStep(3);
-              } else if (cmd.includes('tts-generation') || cmd.includes('generate_tts')) {
-                setCurrentStep(4);
-              } else if (cmd.includes('music-generation') || cmd.includes('generate_music')) {
-                setCurrentStep(5);
-              } else if (cmd.includes('audio-mixing') || cmd.includes('mix_audio')) {
-                setCurrentStep(6);
-              } else if (cmd.includes('metadata-generation') || cmd.includes('generate_metadata') || cmd.includes('cover-image') || cmd.includes('generate_image')) {
-                setCurrentStep(7);
-              }
-            } else if (event.type === "tool_result") {
-              const preview = typeof event.result === 'string' ? event.result.slice(0, 100) : 'Done';
-              setLogs(prev => [...prev, `[${timeStr}] ✓ Tool Result: ${preview}`]);
-              if (typeof event.result === 'string') {
-                if (event.result.includes('Phase 1') || event.result.includes('editorial analysis')) {
-                  setCurrentStep(2);
-                } else if (event.result.includes('Phase 2') || event.result.includes('Script saved') || event.result.includes('script.md')) {
-                  setCurrentStep(3);
-                }
-              }
-            } else if (event.type === "text" && event.text) {
-              setLogs(prev => [...prev, `[${timeStr}] 🃏 Feste: ${event.text.slice(0, 140)}`]);
-            } else if (event.type === "show_data" && event.data) {
-              const audioUrl = typeof event.data.audioUrl === "string" ? event.data.audioUrl : "";
-              const hasPlayableAudio =
-                audioUrl.startsWith("data:audio/") ||
-                audioUrl.startsWith("/shows/");
-
-              if (hasPlayableAudio) {
-                try {
-                  generatedShow = transformShow(event.data);
-                  setLogs(prev => [...prev, `[${timeStr}] 📦 Received finalized show metadata and playable audio package.`]);
-                } catch (showErr) {
-                  console.error("Could not parse finalized show package:", showErr);
-                  setLogs(prev => [...prev, `[${timeStr}] ⚠️ Received show metadata, but it could not be parsed.`]);
-                }
-              } else {
-                // The agent can emit metadata before the server has packaged the real MP3.
-                // Never treat that early metadata as a finished episode or fall back to demo audio.
-                setLogs(prev => [...prev, `[${timeStr}] ⏳ Show metadata received; waiting for the final audio package.`]);
-              }
-            } else if (event.type === "error") {
-              setLogs(prev => [...prev, `[${timeStr}] ❌ Error: ${event.message}`]);
-            }
-          } catch (parseErr) {
-            // ignore
+          if (cmd.includes('research') || cmd.includes('fetch_hn') || cmd.includes('fetch_url') || cmd.includes('fetch_github')) {
+            setCurrentStep(1);
+          } else if (cmd.includes('editorial') || cmd.includes('deconstruction')) {
+            setCurrentStep(2);
+          } else if (cmd.includes('script-writing') || cmd.includes('generate_script')) {
+            setCurrentStep(3);
+          } else if (cmd.includes('tts-generation') || cmd.includes('generate_tts')) {
+            setCurrentStep(4);
+          } else if (cmd.includes('music-generation') || cmd.includes('generate_music')) {
+            setCurrentStep(5);
+          } else if (cmd.includes('audio-mixing') || cmd.includes('mix_audio')) {
+            setCurrentStep(6);
+          } else if (cmd.includes('metadata-generation') || cmd.includes('generate_metadata') || cmd.includes('cover-image') || cmd.includes('generate_image')) {
+            setCurrentStep(7);
           }
+        } else if (event.type === "tool_result") {
+          const preview = typeof event.result === 'string' ? event.result.slice(0, 100) : 'Done';
+          setLogs(prev => [...prev, `[${timeStr}] \u2713 Tool Result: ${preview}`]);
+          if (typeof event.result === 'string') {
+            if (event.result.includes('Phase 1') || event.result.includes('editorial analysis')) {
+              setCurrentStep(2);
+            } else if (event.result.includes('Phase 2') || event.result.includes('Script saved') || event.result.includes('script.md')) {
+              setCurrentStep(3);
+            }
+          }
+        } else if (event.type === "text" && event.text) {
+          setLogs(prev => [...prev, `[${timeStr}] \uD83C\uCCF5 Feste: ${event.text.slice(0, 140)}`]);
+        } else if (event.type === "show_data" && event.data) {
+          const audioUrl = typeof event.data.audioUrl === "string" ? event.data.audioUrl : "";
+          const hasPlayableAudio =
+            audioUrl.startsWith("data:audio/") ||
+            audioUrl.startsWith("/shows/") ||
+            audioUrl.startsWith("/api/jobs/");
+
+          if (hasPlayableAudio) {
+            try {
+              generatedShow = transformShow(event.data);
+              setLogs(prev => [...prev, `[${timeStr}] \uD83D\uDCE6 Received finalized show metadata and playable audio package.`]);
+            } catch (showErr) {
+              console.error("Could not parse finalized show package:", showErr);
+              setLogs(prev => [...prev, `[${timeStr}] \u26A0\uFE0F Received show metadata, but it could not be parsed.`]);
+            }
+          } else {
+            // The agent can emit metadata before the server has packaged the real MP3.
+            // Never treat that early metadata as a finished episode or fall back to demo audio.
+            setLogs(prev => [...prev, `[${timeStr}] \u23F3 Show metadata received; waiting for the final audio package.`]);
+          }
+        } else if (event.type === "error") {
+          setLogs(prev => [...prev, `[${timeStr}] \u274C Error: ${event.message}`]);
+        }
+      };
+
+      // Poll the job until it completes, fails, or is cancelled.
+      let lastIndex = 0;
+      for (;;) {
+        await new Promise(r => setTimeout(r, 3000));
+        if (abortControllerRef.current.signal.aborted) break;
+
+        const pollRes = await fetch(`/api/jobs/${jobId}?since=${lastIndex}`, {
+          signal: abortControllerRef.current.signal
+        });
+        if (!pollRes.ok) {
+          throw new Error(`Job poll failed: HTTP ${pollRes.status}`);
+        }
+        const job = await pollRes.json();
+        for (const event of (job.events || [])) handleJobEvent(event);
+        lastIndex = typeof job.total === "number" ? job.total : lastIndex;
+
+        if (job.status === "complete") break;
+        if (job.status === "failed" || job.status === "cancelled") {
+          throw new Error(job.error || "Generation failed.");
         }
       }
 
@@ -562,12 +567,17 @@ export default function App() {
       abortControllerRef.current.abort();
     }
     if (generationIdRef.current) {
+      const gid = generationIdRef.current;
       try {
-        await fetch('/api/cancel-show', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ generationId: generationIdRef.current })
-        });
+        // New async-job cancel endpoint; falls back to the legacy Express endpoint.
+        const r = await fetch(`/api/jobs/${gid}/cancel`, { method: 'POST' });
+        if (!r.ok) {
+          await fetch('/api/cancel-show', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ generationId: gid })
+          });
+        }
       } catch (e) {
         // ignore
       }
