@@ -1,0 +1,30 @@
+{
+  "slug": "ep001-under-the-umbrella",
+  "show_title": "Under the Umbrella",
+  "two_sentence_summary": "Feste and Ledger introduce Build While Bleeding as the umbrella for four distinct projects: Hardwire, Seuss, The Leak Report, and Cartography. They explain each project briefly and place Ring My Bell within the larger body of work as a research-driven audio show.",
+  "parent_project": "Build While Bleeding",
+  "projects": [
+    {
+      "name": "Hardwire",
+      "purpose": "Practical music theory for rappers, beatmakers, and self-taught producers; FEEL, MAP, CONTROL."
+    },
+    {
+      "name": "Seuss",
+      "purpose": "Rhythm, meter, cadence, syncopation, rhyme patterns, and language in hip-hop."
+    },
+    {
+      "name": "The Leak Report",
+      "purpose": "Examines communication, assumptions, claims, context, and evidence."
+    },
+    {
+      "name": "Cartography",
+      "purpose": "Preserves music, lyrics, writing, and documents as a creative and narrative archive."
+    },
+    {
+      "name": "Ring My Bell",
+      "purpose": "Turns topics and source material into researched, two-host talk-radio episodes."
+    }
+  ],
+  "editorial_note": "Build While Bleeding is the umbrella; the projects beneath it remain distinct. Their shared purpose is to develop useful ideas, examine them carefully, and preserve the work. A difficult origin or polished presentation is not proof of quality; each project must stand on its own merits.",
+  "audio_note": "The local audio draft uses eSpeak voices and a restrained synthetic tonal bed. It is a functional preview, not the final Gemini/Lyria studio-quality pipeline output."
+}
