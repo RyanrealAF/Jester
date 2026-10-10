@@ -658,6 +658,15 @@ export default function App() {
               <span aria-hidden="true">·</span>
               <span>The Fool & The Receipts</span>
               <span aria-hidden="true">·</span>
+              <a
+                href="https://buildwhilebleeding.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-emerald-300 transition-colors underline decoration-dotted underline-offset-2"
+                title="A Build While Bleeding project">
+                A Build While Bleeding project
+              </a>
+              <span aria-hidden="true">·</span>
               <span className="flex items-center text-emerald-400 font-semibold">
                 <span className={`w-1.5 h-1.5 rounded-full mr-1 ${isPlaying || isGenerating ? 'bg-red-500 animate-ping' : 'bg-emerald-400'}`} />
                 {isPlaying ? 'ON AIR' : isGenerating ? 'TRANSMITTING' : 'STUDIO READY'}
