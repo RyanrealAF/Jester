@@ -61,47 +61,83 @@ export function transformShow(raw: RawRadioShow): RadioShow {
 }
 
 export const RAW_MOCK_SHOW: RawRadioShow = {
-  slug: "ep001-under-the-umbrella",
-  show_title: "Under the Umbrella",
-  show_duration: "13:46",
-  two_sentence_summary: "Feste and Ledger introduce Build While Bleeding as the umbrella for four distinct projects: Hardwire, Seuss, The Leak Report, and Cartography. They explain each project briefly and place Ring My Bell within the larger body of work as a research-driven audio show.",
-  date_of_generation: "2026-10-09",
-  coverImage: "/shows/ep001-under-the-umbrella/cover.svg",
-  audioUrl: "",
-  notesUrl: "/shows/ep001-under-the-umbrella/show_notes.json",
-  editorial_analysis: `### Editorial Deconstruction: Under the Umbrella
-
-#### The umbrella
-Build While Bleeding is the larger home for distinct projects. The umbrella is not a claim that every project is finished or that all projects should be merged into one application.
-
-#### The four projects
-- **Hardwire:** Practical music theory for rappers, beatmakers, and self-taught producers. Method: FEEL, MAP, CONTROL.
-- **Seuss:** Rhythm, meter, cadence, syncopation, rhyme patterns, and language in hip-hop.
-- **The Leak Report:** Examines communication, assumptions, claims, context, and evidence.
-- **Cartography:** Preserves music, lyrics, writing, and documents as a creative and narrative archive.
-
-#### Ring My Bell's place
-Ring My Bell turns topics and source material into researched, two-host talk-radio episodes. Feste challenges and translates; Ledger establishes what the evidence supports and identifies uncertainty.
-
-#### Editorial boundary
-A difficult origin or polished presentation is not proof of quality. Each project must stand on its own merits. The common thread is useful work, careful examination, and preservation.`,
-  timecoded_transcript: [
-    { timecode: "00:01", speaker: "Feste", text: "Ring-a-ding-DING, you curious creatures! Step right up! Come one, come all! Bring your questions, bring your doubts, bring that suspicious little eyebrow you've been saving for a special occasion!" },
-    { timecode: "00:18", speaker: "Feste", text: "Welcome to Ring My Bell, where curiosity gets a front-row seat, assumptions get their pockets checked, and the fool has somehow been trusted with the microphone!" },
-    { timecode: "00:30", speaker: "Feste", text: "I'm Feste! Your licensed fool, your unofficial tour guide, and the only man alive who can lose his train of thought while standing on the platform!" },
-    { timecode: "00:40", speaker: "Ledger", text: "And I'm Ledger." },
-    { timecode: "00:44", speaker: "Ledger", text: "Today, we're introducing the larger project behind this show: Build While Bleeding." },
-    { timecode: "00:53", speaker: "Feste", text: "Build While Bleeding! Not Build While Comfortable. The work can happen while life is difficult, uncertain, and unfinished." },
-    { timecode: "01:40", speaker: "Ledger", text: "First, Hardwire. Hardwire focuses on making music theory practical for rappers, beatmakers, and self-taught producers. Its teaching method is simple: FEEL, MAP, CONTROL." },
-    { timecode: "03:00", speaker: "Ledger", text: "Next is Seuss. Seuss explores the deeper structures of rhythm and language in hip-hop, including meter, cadence, syncopation, rhyme patterns, and the mechanics that make words work rhythmically." },
-    { timecode: "04:25", speaker: "Ledger", text: "The Leak Report examines communication, looking at messages, assumptions, and the dynamics that influence how people interpret what they hear." },
-    { timecode: "05:45", speaker: "Ledger", text: "Cartography is a creative and narrative archive. It preserves music, lyrics, writing, and documents connected to the development of the wider body of work." },
-    { timecode: "07:10", speaker: "Ledger", text: "The projects don't need to perform the same function to belong together. Their connection is the larger body of work they're part of, along with a shared intention to develop ideas, make them useful, examine them carefully, and preserve what gets created." },
-    { timecode: "08:30", speaker: "Feste", text: "A good name doesn't make a bad idea good. A website doesn't automatically make a tool useful. And a beautifully organized archive can still contain a terrible song." },
-    { timecode: "09:35", speaker: "Ledger", text: "Build While Bleeding describes an approach to the work, not a claim that the work is complete or that difficult circumstances automatically make an idea valuable." },
-    { timecode: "10:45", speaker: "Ledger", text: "Ring My Bell is another project within the wider picture. It uses research, analysis, dialogue, synthetic voices, music, and audio production to turn subjects into finished talk-radio episodes." },
-    { timecode: "11:40", speaker: "Feste", text: "Ledger establishes what the evidence supports. I poke at the gaps, translate the jargon, and challenge the conclusions. Sometimes he catches me reaching too far. Sometimes I find a question the first explanation forgot to answer." },
-    { timecode: "12:45", speaker: "Feste", text: "Build while bleeding. Think while building. And never confuse the roof with the things you're building beneath it. Come curious. Leave a little harder to fool. Follow the noise. It's probably me." }
+  "slug": "ep001-welcome",
+  "show_title": "Episode 001: Under the Umbrella",
+  "show_duration": "14:05",
+  "two_sentence_summary": "Feste and Ledger tour the Build While Bleeding umbrella — Hardwire, Seuss, The Leak Report, and Cartography — and explain what holds the projects together. They close by placing Ring My Bell itself under the same roof: research first, evidence in the room.",
+  "date_of_generation": "2026-10-10",
+  "coverImage": "/shows/ep001-welcome/cover.png",
+  "audioUrl": "/shows/ep001-welcome/ai_radio.mp3",
+  "notesUrl": "/shows/ep001-welcome/show_notes.json",
+  "editorial_analysis": "### Editorial Deconstruction: Under the Umbrella\n\n#### 1. The Record\nEpisode 001 is a guided tour of the Build While Bleeding umbrella: four projects with four jobs — Hardwire (practical music theory via FEEL, MAP, CONTROL), Seuss (rhythm and language mechanics), The Leak Report (examining communication and claims), and Cartography (the creative archive). The throughline: different tools, different problems, shared roof.\n\n#### 2. Feste's Translation\nThe umbrella is not a promise that everything beneath it is finished — it is a place for the work to happen. Feste keeps the tour honest: a good name doesn't make a bad idea good, and suffering isn't a magic ingredient. The work has to make its own case.\n\n#### 3. The Episode Arc\nFour doors, each opened the same way — Ledger states what the project does, Feste translates it into plain language and pressure-tests it. Then the turn: what holds it together, why 'bleeding' is in the name, and where Ring My Bell itself fits.\n\n#### 4. Editorial Boundary\nThe episode argues from the work, not from the brand. Ledger's guardrail stands: evaluate each project by what it accomplishes, not the circumstances it was built in.\n\n#### 5. Closing Razor\nBuild while bleeding. Think while building. Never confuse the roof with the things you're building beneath it. The truth never needed your permission.",
+  "timecoded_transcript": [
+    {"timecode": "00:07", "speaker": "Feste", "text": "Ring-a-ding-DING, you curious creatures! Step right up! Come one, come all! Bring your questions, bring your doubts, bring that suspicious little eyebrow you've been saving for a special occasion! Welcome to Ring My Bell, where curiosity gets a front-row seat, assumptions get their pockets checked, and the fool has somehow been trusted with the microphone! I'm Feste! Your licensed fool, your unofficial tour guide, and the only man alive who can lose his train of thought while standing on the platform!"},
+    {"timecode": "00:40", "speaker": "Ledger", "text": "And I'm Ledger."},
+    {"timecode": "00:42", "speaker": "Feste", "text": "Short introduction. Very efficient. Probably alphabetized his breakfast."},
+    {"timecode": "00:48", "speaker": "Ledger", "text": "Today, we're introducing the larger project behind this show: Build While Bleeding."},
+    {"timecode": "00:54", "speaker": "Feste", "text": "BUILD WHILE BLEEDING! Now there's a name with a little gravel in its throat! Not Build While Comfortable. Not Build After Life Finally Gets Its Act Together. Not Build Once Every Problem Has packed its little suitcase and moved to another zip code. Build. While. Bleeding."},
+    {"timecode": "01:13", "speaker": "Ledger", "text": "The idea is straightforward. Creating something useful doesn't have to wait until circumstances are ideal. The work can happen while life is difficult, uncertain, and unfinished."},
+    {"timecode": "01:25", "speaker": "Feste", "text": "Exactly! The roof's leaking, the walls are crooked, the landlord's a metaphor, and somebody's yelling that the blueprints aren't professional enough! So what do you do? You build!"},
+    {"timecode": "01:35", "speaker": "Ledger", "text": "That doesn't mean every idea is worth pursuing."},
+    {"timecode": "01:38", "speaker": "Feste", "text": "Of course not! Some ideas need a little polishing. Some need a complete reconstruction. And some need to be taken behind the shed and asked, very firmly, what the hell they thought they were doing."},
+    {"timecode": "01:50", "speaker": "Ledger", "text": "Which is why the work matters more than the name."},
+    {"timecode": "01:54", "speaker": "Feste", "text": "There it is! Put that on the welcome mat! Build While Bleeding isn't one single tool pretending to do everything. It's the umbrella over a collection of projects, each with its own purpose. And today, we're taking a quick stroll underneath it. Four projects. Four different jobs. One roof. And not a matching set of furniture in sight!"},
+    {"timecode": "02:16", "speaker": "Ledger", "text": "First, Hardwire. Hardwire focuses on making music theory practical for rappers, beatmakers, and self-taught producers. It connects musical concepts to familiar tools like MIDI grids, production timelines, rhythmic subdivisions, and timing. Its teaching method is simple: FEEL, MAP, CONTROL."},
+    {"timecode": "02:38", "speaker": "Feste", "text": "Feel it first! Map it next! Take that rhythm, learn what's next!"},
+    {"timecode": "02:44", "speaker": "Ledger", "text": "The objective is to understand what's happening in the music, not merely follow instructions without knowing why they work."},
+    {"timecode": "02:51", "speaker": "Feste", "text": "Because sometimes your ears know the answer before your vocabulary gets out of bed! You can hear that snare hitting wrong. You can feel your flow tripping over its own shoelaces. But somebody asks you to explain the problem, and suddenly you're pointing at the screen like a raccoon that found a calculator! Hardwire helps connect what you're hearing to what you're doing. Less guessing. More understanding. Better control over your craft."},
+    {"timecode": "03:18", "speaker": "Ledger", "text": "That's the idea."},
+    {"timecode": "03:20", "speaker": "Feste", "text": "Look at that. We explained music theory without making everybody feel like they accidentally enrolled in college. One down!"},
+    {"timecode": "03:28", "speaker": "Ledger", "text": "Next is Seuss. Seuss explores the deeper structures of rhythm and language in hip-hop, including meter, cadence, syncopation, rhyme patterns, and the mechanics that make words work rhythmically."},
+    {"timecode": "03:41", "speaker": "Feste", "text": "SEUSS! The name walks in wearing a rhyme, and suddenly everybody's checking their syllables! So if Hardwire helps you get your hands on the controls, Seuss wants to know why the damn machine moves the way it does."},
+    {"timecode": "03:54", "speaker": "Ledger", "text": "The projects complement one another, but they approach the subject from different directions. Hardwire emphasizes practical application. Seuss examines the underlying structures."},
+    {"timecode": "04:07", "speaker": "Feste", "text": "One says, \"Here's how you work with the rhythm.\" The other says, \"Now let's take this rhythm apart, inspect its little bones, and figure out what makes it dance.\""},
+    {"timecode": "04:18", "speaker": "Ledger", "text": "With careful analysis."},
+    {"timecode": "04:21", "speaker": "Feste", "text": "Naturally. We wouldn't want to frighten the bones. Two doors down. Still under the roof!"},
+    {"timecode": "04:28", "speaker": "Feste", "text": "Now, the third door. The Leak Report."},
+    {"timecode": "04:32", "speaker": "Ledger", "text": "The Leak Report examines communication, looking at messages, assumptions, and the dynamics that influence how people interpret what they hear."},
+    {"timecode": "04:42", "speaker": "Feste", "text": "In other words, the words walk into the room wearing a nice suit, and we're checking whether the argument underneath is wearing pants!"},
+    {"timecode": "04:50", "speaker": "Ledger", "text": "The point isn't to assume every message hides something sinister. It's to examine what's being communicated, what supports the claim, and what might be missing."},
+    {"timecode": "05:01", "speaker": "Feste", "text": "Because confidence isn't evidence. A fancy vocabulary isn't evidence. And repeating something three times while leaning forward doesn't magically turn it into a fact!"},
+    {"timecode": "05:13", "speaker": "Ledger", "text": "Suspicion alone isn't enough, either. Good analysis requires context, questions, and evidence."},
+    {"timecode": "05:20", "speaker": "Feste", "text": "Look at that! The man can investigate without turning every sentence into a conspiracy board! Somebody give him a little badge. Not a big badge. We don't need him getting ideas. The Leak Report asks us to pay attention to how messages work, not just how they sound. And that matters, because a convincing argument and a correct argument are not always the same thing."},
+    {"timecode": "05:44", "speaker": "Ledger", "text": "Which is why we examine the reasoning rather than judging a message by its presentation alone."},
+    {"timecode": "05:50", "speaker": "Feste", "text": "Exactly. A polished speech can still have a hole in it big enough to drive a parade float through. And I know a thing or two about parade floats. Don't ask about the swan."},
+    {"timecode": "06:02", "speaker": "Feste", "text": "And finally, Cartography! Ah, a map! At last, a map! I've been wandering around this conversation for twenty minutes!"},
+    {"timecode": "06:11", "speaker": "Ledger", "text": "Cartography is a creative and narrative archive. It preserves music, lyrics, writing, and documents connected to the development of the wider body of work."},
+    {"timecode": "06:23", "speaker": "Feste", "text": "The archive! The attic! The memory palace where the old songs, the new ideas, the half-forgotten stories, and the beautifully questionable decisions all get a place to live!"},
+    {"timecode": "06:35", "speaker": "Ledger", "text": "The purpose is to preserve connections between the work rather than leave everything scattered and disconnected."},
+    {"timecode": "06:42", "speaker": "Feste", "text": "Because a body of work isn't just a pile of finished products. There's a history in there. Recurring ideas. Changes in perspective. Things you understood yesterday that you couldn't explain the day before. And if you don't preserve that history, you might spend six months reinventing a wheel you already built, named, and accidentally left behind the metaphorical washing machine."},
+    {"timecode": "07:06", "speaker": "Ledger", "text": "Cartography helps keep the record."},
+    {"timecode": "07:09", "speaker": "Feste", "text": "And sometimes the record keeps you honest. Four projects. Four distinct purposes. Hardwire builds practical musical understanding. Seuss digs into rhythm and language. The Leak Report examines communication. Cartography preserves the creative history. And now, before our tour guide starts charging admission, let's talk about the umbrella itself."},
+    {"timecode": "07:36", "speaker": "Feste", "text": "So here's the question. What ties these projects together? Because you can't use a rhyme scheme to fix a broken audio cable. You can't file your entire life into a MIDI grid. And if you analyze every conversation like a forensic investigation, eventually even your breakfast will refuse to speak without legal representation."},
+    {"timecode": "07:55", "speaker": "Ledger", "text": "The projects don't need to perform the same function to belong together. Their connection is the larger body of work they're part of, along with a shared intention to develop ideas, make them useful, examine them carefully, and preserve what gets created."},
+    {"timecode": "08:09", "speaker": "Feste", "text": "There it is. Different tools. Different problems. Shared roof. And that roof has a name: Build While Bleeding. It's not a promise that everything underneath it is finished. It's not a declaration that every experiment is brilliant. And it's certainly not a magical canopy that keeps every storm in the county from landing on your head. It's a place for the work to happen."},
+    {"timecode": "08:31", "speaker": "Ledger", "text": "The projects remain distinct. Each still has to demonstrate its own usefulness and stand on its own merits."},
+    {"timecode": "08:39", "speaker": "Feste", "text": "Absolutely! A good name doesn't make a bad idea good. A website doesn't automatically make a tool useful. And a beautifully organized archive can still contain a terrible song."},
+    {"timecode": "08:50", "speaker": "Ledger", "text": "I'm glad we've established that."},
+    {"timecode": "08:52", "speaker": "Feste", "text": "I'm glad you've finally admitted the possibility of a terrible song!"},
+    {"timecode": "08:56", "speaker": "Ledger", "text": "I didn't say that."},
+    {"timecode": "08:58", "speaker": "Feste", "text": "I heard it in the subtext. The Leak Report is going to love this. But seriously, the umbrella isn't about forcing every project into one enormous application with seventeen menus and a button that plays a handbell every time you make a questionable life decision."},
+    {"timecode": "09:14", "speaker": "Ledger", "text": "That feature is not currently planned."},
+    {"timecode": "09:16", "speaker": "Feste", "text": "Then how will we know?!"},
+    {"timecode": "09:18", "speaker": "Ledger", "text": "We could start with reflection."},
+    {"timecode": "09:21", "speaker": "Feste", "text": "Reflection? Without sound effects? This operation is in crisis."},
+    {"timecode": "09:26", "speaker": "Ledger", "text": "There's one more thing worth understanding about the name. Build While Bleeding describes an approach to the work, not a claim that the work is complete or that difficult circumstances automatically make an idea valuable."},
+    {"timecode": "09:39", "speaker": "Feste", "text": "Right. The name doesn't give us a free pass. It doesn't mean every half-finished project is secretly a masterpiece. And it doesn't mean suffering is some magical ingredient you sprinkle over an idea to make it brilliant. Life can be difficult without being romantic about it. The point is that difficult circumstances don't have to be the end of the story. You can learn something. You can build something. You can take an idea that exists only in your head and start giving it a shape in the real world. It might be rough. It might need rebuilding. You might discover halfway through that your original plan was held together with wishful thinking and one suspiciously optimistic spreadsheet."},
+    {"timecode": "10:16", "speaker": "Ledger", "text": "And the work should be evaluated by what it actually accomplishes, not simply by the circumstances in which it was created."},
+    {"timecode": "10:24", "speaker": "Feste", "text": "Exactly. The circumstances explain some of the challenge. The work has to make its own case. That's the difference between telling a story about building something and actually building it."},
+    {"timecode": "10:35", "speaker": "Ledger", "text": "And that brings us to this show. Ring My Bell is another project within the wider picture. It uses research, analysis, dialogue, synthetic voices, music, and audio production to turn subjects into finished talk-radio episodes."},
+    {"timecode": "10:52", "speaker": "Feste", "text": "You bring us a question, a website, a paper, a GitHub repository, or a subject you've been chewing on until it tastes like shoe leather. We do the digging. We build the discussion. Ledger checks the receipts. I ask the questions that make the receipts sweat. And together, we turn the material into a show you can actually listen to."},
+    {"timecode": "11:14", "speaker": "Ledger", "text": "The aim is to make information easier to explore and arguments easier to understand. A polished recording, however, doesn't guarantee that every claim is correct. The sources and reasoning still matter."},
+    {"timecode": "11:28", "speaker": "Feste", "text": "There he goes again, protecting the public from the seductive power of a well-mixed audio file. And he's right. A nice voice doesn't make a lie true. A clever joke doesn't make a claim factual. And a machine that talks real pretty still has to show its work. That's why there's a place for both of us. Ledger establishes what the evidence supports. I poke at the gaps, translate the jargon, and challenge the conclusions. Sometimes he catches me reaching too far. Sometimes I find a question the first explanation forgot to answer. Sometimes we discover the answer isn't nearly as tidy as either of us wanted. That's the show. Not two voices arguing for the sake of making noise. Two different approaches, working on the same subject, with the evidence in the room."},
+    {"timecode": "12:20", "speaker": "Feste", "text": "So, here's the takeaway from our little umbrella tour. Build While Bleeding is the larger home. Hardwire works on practical musical understanding. Seuss explores the mechanics of rhythm and language. The Leak Report examines communication and the claims we encounter. Cartography preserves the creative history. And Ring My Bell gives us another way to investigate ideas, build a conversation, and put the results into your ears. Different projects. Different purposes. Shared roof."},
+    {"timecode": "12:52", "speaker": "Ledger", "text": "They don't have to become one enormous application to belong to the same larger body of work. Their value comes from what each one contributes."},
+    {"timecode": "13:02", "speaker": "Feste", "text": "And none of this requires you to take our word for it. Look at the work. Try the tools. Question the claims. Tell us where something breaks. Bring the evidence that proves we're wrong, if you've got it. Just bring something better than \"I don't like the sound of it.\""},
+    {"timecode": "13:20", "speaker": "Ledger", "text": "The goal is understanding, not unquestioning agreement."},
+    {"timecode": "13:24", "speaker": "Feste", "text": "Now you're talking! We're not here to hand you a sacred tablet engraved with our own greatness. We're here to show you what we're building, explain why the pieces exist, and leave enough room for a good question to walk in and rearrange the furniture. I'm Feste, your licensed fool and unofficial umbrella inspector."},
+    {"timecode": "13:42", "speaker": "Ledger", "text": "I'm Ledger."},
+    {"timecode": "13:44", "speaker": "Feste", "text": "And this is Ring My Bell. Build while bleeding. Think while building. And never confuse the roof with the things you're building beneath it. Come curious. Leave a little harder to fool. And if you get lost under the umbrella? Follow the noise. It's probably me."},
   ]
 };
 
