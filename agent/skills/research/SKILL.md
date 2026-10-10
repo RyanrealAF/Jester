@@ -31,7 +31,7 @@ Output: `{workspace}/data/research/hn-scan.md` — a list of stories with IDs.
 
 **You read this file, pick the 2-3 most interesting stories for radio, then run phase 2.**
 
-When picking stories, focus on high-impact stories with verifiable evidence, technical debate, policy implications, or cultural friction. Follow the owner's explicit directives: episodes on legislation, policy, public affairs, and technical debates are assigned directly. Research the primary source and comment arguments deeply.
+When picking stories, **SKIP** anything related to politics, race, religion, international conflicts, historical controversies, gender/culture wars, or immigration. Stick to tech, programming, AI/ML, open source, science, startups, and developer culture.
 
 **Phase 2: Deep-dive** — fetch full comment threads for the stories you picked:
 

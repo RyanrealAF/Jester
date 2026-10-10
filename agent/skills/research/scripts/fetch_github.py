@@ -12,7 +12,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""Fetch GitHub repository activity for AI Talk Radio research.
+"""Fetch GitHub repository activity for Ring My Bell research.
 
 Usage:
     python3 fetch_github.py --repo googleapis/python-genai --workspace ./workspace
@@ -114,7 +114,7 @@ def fetch_repo_info(owner_repo):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Fetch GitHub repo activity for AI Talk Radio")
+    parser = argparse.ArgumentParser(description="Fetch GitHub repo activity for Ring My Bell")
     parser.add_argument("--repo", required=True, help="GitHub repo (owner/repo or full URL)")
     parser.add_argument("--workspace", default="workspace", help="Workspace directory")
     parser.add_argument("--releases", type=int, default=5, help="Number of releases to fetch")
@@ -124,7 +124,7 @@ def main():
     out_dir = os.path.join(args.workspace, "data", "research")
     os.makedirs(out_dir, exist_ok=True)
 
-    print(f"=== AI Talk Radio Research: GitHub Deep Dive ===")
+    print(f"=== Ring My Bell Research: GitHub Deep Dive ===")
     print(f"Repository: {owner_repo}\n")
 
     # Repo info

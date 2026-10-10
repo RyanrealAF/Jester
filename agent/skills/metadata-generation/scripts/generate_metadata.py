@@ -50,18 +50,10 @@ def make_fallback_metadata(transcript_text, duration_str, today_date, output_pat
     fallback_data = {
         "show_title": "Ring My Bell Broadcast",
         "show_duration": duration_str,
-        "two_sentence_summary": "In this automated broadcast of Ring My Bell, Feste (The Jester) and Ledger (The Co-Host) deconstruct the official record with sharp wit, cold receipts, and street-level translation.",
+        "two_sentence_summary": "In this episode, hosts Jester (Feste) and Ledger take a researched topic through their five-beat exchange — evidence, translation, challenge, and verdict.",
         "date_of_generation": today_date,
         "timecoded_transcript": turns
     }
-
-    editorial_path = os.path.join(os.path.dirname(output_path), "editorial_analysis.md")
-    if os.path.exists(editorial_path):
-        try:
-            with open(editorial_path, "r") as ef:
-                fallback_data["editorial_analysis"] = ef.read()
-        except Exception:
-            pass
     
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w") as f:
@@ -69,7 +61,7 @@ def make_fallback_metadata(transcript_text, duration_str, today_date, output_pat
     print(f"✅ Local fallback metadata saved successfully to {output_path}")
 
 def main():
-    parser = argparse.ArgumentParser(description="Generate AI Talk Radio show metadata")
+    parser = argparse.ArgumentParser(description="Generate Ring My Bell show metadata")
     parser.add_argument("--workspace", default="workspace", help="Workspace directory")
     args = parser.parse_args()
 
@@ -142,7 +134,7 @@ Based on the audio and transcript, generate a JSON object containing the followi
 The transcript provided is:
 {transcript_text}
 
-You MUST align the transcript with the audio to provide accurate timecodes. Callers usually have a telephone effect.
+You MUST align the transcript with the audio to provide accurate timecodes. Both hosts are recorded clean, with no telephone effect.
 
 Return ONLY a valid JSON object. Do NOT wrap it in markdown code blocks. Ensure the output is parseable by json.loads.
 """
@@ -181,14 +173,6 @@ Return ONLY a valid JSON object. Do NOT wrap it in markdown code blocks. Ensure 
         # Validate JSON
         try:
             json_data = json.loads(response_text)
-
-            editorial_path = os.path.join(args.workspace, "data", "editorial_analysis.md")
-            if os.path.exists(editorial_path):
-                try:
-                    with open(editorial_path, "r") as ef:
-                        json_data["editorial_analysis"] = ef.read()
-                except Exception as ef_err:
-                    print(f"Warning: Could not read editorial_analysis.md: {ef_err}")
 
             # Save
             os.makedirs(os.path.dirname(output_path), exist_ok=True)

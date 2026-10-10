@@ -1,0 +1,189 @@
+{
+  "show_title": "Welcome to the Circus. Bring Receipts.",
+  "show_duration": "06:22",
+  "two_sentence_summary": "Feste the Jester and Ledger the Analyst introduce Ring My Bell, the AI talk-radio generator that turns any topic into a researched two-voice episode. They explain the seven-stage pipeline, why the show runs on two opposing voices, and what listeners can bring — from a Build While Bleeding studio at buildwhilebleeding.com.",
+  "date_of_generation": "2026-10-09",
+  "timecoded_transcript": [
+    {
+      "timecode": "00:02",
+      "speaker": "Feste",
+      "text": "Ladies and gentlemen, skeptics and suckers, curious cats and professional know-it-alls! Welcome to Ring My Bell, the show where we invite artificial intelligence to do something radical."
+    },
+    {
+      "timecode": "00:14",
+      "speaker": "Ledger",
+      "text": "Generate a structured, evidence-based discussion of a subject."
+    },
+    {
+      "timecode": "00:18",
+      "speaker": "Feste",
+      "text": "That's one way to say it. I was gonna say we take a topic, throw it in the circus, shine a spotlight on its ass, and see what falls out."
+    },
+    {
+      "timecode": "00:27",
+      "speaker": "Ledger",
+      "text": "That is not an accurate description of the process."
+    },
+    {
+      "timecode": "00:30",
+      "speaker": "Feste",
+      "text": "And there he is! Ledger, everybody! The only man I know who can suck the oxygen out of a birthday party by explaining the fire code."
+    },
+    {
+      "timecode": "00:39",
+      "speaker": "Ledger",
+      "text": "I prefer accuracy to theatrics."
+    },
+    {
+      "timecode": "00:41",
+      "speaker": "Feste",
+      "text": "Lucky for you, this show has room for both. I'm Feste, your resident wiseass, professional question-asker, and unpaid inspector of bullshit."
+    },
+    {
+      "timecode": "00:50",
+      "speaker": "Ledger",
+      "text": "And I'm Ledger. I examine the evidence, distinguish verified information from speculation, and make sure the argument survives contact with the facts."
+    },
+    {
+      "timecode": "01:00",
+      "speaker": "Feste",
+      "text": "Translation: he brings the receipts. I check whether the cashier's been cooking the books. Welcome to Ring My Bell. Bring a subject. Bring a link. Bring a research paper, a GitHub repository, a headline, a sacred cow, or an opinion you've been carrying around so long you've forgotten to question it. We're about to see what it can withstand."
+    },
+    {
+      "timecode": "01:22",
+      "speaker": "Ledger",
+      "text": "Ring My Bell is an AI-powered talk-radio generator. A user supplies a topic or source. The system researches the material, develops an editorial analysis, writes a dialogue between two distinct voices, synthesizes the speech, composes supporting music, mixes the audio, and packages the finished episode with show notes and artwork."
+    },
+    {
+      "timecode": "01:44",
+      "speaker": "Feste",
+      "text": "Seven steps. One finished show. And hopefully fewer reasons to throw your phone across the room than most websites give you. You bring the subject. The machine does the legwork."
+    },
+    {
+      "timecode": "01:55",
+      "speaker": "Ledger",
+      "text": "With an important qualification. Automation doesn't guarantee accuracy. The quality of the result depends on the sources, the reasoning, the script, and the checks performed along the way."
+    },
+    {
+      "timecode": "02:07",
+      "speaker": "Feste",
+      "text": "There it is. Our first disclaimer, and we haven't even reached the snacks. See, that's why Ledger's here. An AI can put on a suit, learn the word therefore, and confidently explain why the moon is made of government cheese. Confidence ain't evidence, sweetheart."
+    },
+    {
+      "timecode": "02:24",
+      "speaker": "Ledger",
+      "text": "Nor is skepticism evidence by itself."
+    },
+    {
+      "timecode": "02:27",
+      "speaker": "Feste",
+      "text": "Touché. A fool who questions everything without checking anything is still a fool. Just one with better marketing."
+    },
+    {
+      "timecode": "02:34",
+      "speaker": "Ledger",
+      "text": "The two-host format is deliberate. My role is to establish what the evidence supports, explain the strongest reasonable interpretation, and identify what remains uncertain. Feste challenges that interpretation, translates technical or institutional language into everyday terms, and examines whether the conclusions follow from the facts."
+    },
+    {
+      "timecode": "02:56",
+      "speaker": "Feste",
+      "text": "In plain English, Ledger tells you what the paperwork says. I ask who wrote the paperwork, what it leaves out, and whether the people signing it have something riding on the answer."
+    },
+    {
+      "timecode": "03:08",
+      "speaker": "Ledger",
+      "text": "Provided those questions are relevant and supported by evidence."
+    },
+    {
+      "timecode": "03:12",
+      "speaker": "Feste",
+      "text": "Yes, Mother."
+    },
+    {
+      "timecode": "03:13",
+      "speaker": "Ledger",
+      "text": "And I challenge Feste when his interpretation outruns the evidence."
+    },
+    {
+      "timecode": "03:17",
+      "speaker": "Feste",
+      "text": "Which is analyst-speak for somebody has to stop the clown from driving the bus. But here's the trick: we're not pretending that disagreement automatically makes a show intelligent. Two voices yelling opposite things isn't analysis. It's a car alarm with a microphone. The point is to make the argument stronger by putting it under pressure. Sometimes Ledger will be right. Sometimes I'll catch a hole in the official explanation. Sometimes the answer will be, We don't know yet."
+    },
+    {
+      "timecode": "03:48",
+      "speaker": "Ledger",
+      "text": "That last answer is often more useful than an unsupported conclusion."
+    },
+    {
+      "timecode": "03:52",
+      "speaker": "Feste",
+      "text": "Look at us. Already ruining the internet."
+    },
+    {
+      "timecode": "03:55",
+      "speaker": "Ledger",
+      "text": "You can start with a question, a website, a research paper, a GitHub repository, or a subject that deserves closer examination. The system can use available sources to build a researched discussion and turn that material into a packaged audio episode."
+    },
+    {
+      "timecode": "04:11",
+      "speaker": "Feste",
+      "text": "Technology. Politics. Science. Business. The latest miracle machine that promises to replace your entire workforce by Thursday. Bring the pitch. Bring the promise. Bring the fine print. We'll see what the evidence says. And no, we're not here to manufacture outrage just because outrage gets clicks. There's enough noise out there already. We're trying to make something worth hearing."
+    },
+    {
+      "timecode": "04:36",
+      "speaker": "Ledger",
+      "text": "The goal is not to guarantee that every episode reaches a dramatic conclusion. It's to make the reasoning, evidence, and uncertainties easier to follow."
+    },
+    {
+      "timecode": "04:46",
+      "speaker": "Feste",
+      "text": "Exactly. Sometimes you expose a contradiction. Sometimes you find out the thing you were mad about was based on a bad headline. Either way, you leave with something better than the opinion you walked in with. At least, that's the ambition."
+    },
+    {
+      "timecode": "05:02",
+      "speaker": "Ledger",
+      "text": "One final distinction. A polished voice and professional production can make a weak argument sound convincing. The presentation is not proof."
+    },
+    {
+      "timecode": "05:11",
+      "speaker": "Feste",
+      "text": "Listen to him. Ruining perfectly good audio with a responsible observation. But he's right. A nice soundtrack doesn't make a lie true. A clever joke doesn't make a claim factual. And a machine that talks real pretty still has to show its work. So here's your invitation. Bring us something worth examining. A claim. A controversy. A question nobody's answered to your satisfaction. We'll research it, test it, argue it out, and see what survives."
+    },
+    {
+      "timecode": "05:40",
+      "speaker": "Feste",
+      "text": "Oh — one more thing before the bells. This circus has an address: buildwhilebleeding.com. That's where the show lives. The episodes, the code, the receipts. One of the tents on the Build While Bleeding midway."
+    },
+    {
+      "timecode": "05:53",
+      "speaker": "Ledger",
+      "text": "The repositories are public and the sources are linked. If you want to check our work, the filing cabinet is open."
+    },
+    {
+      "timecode": "06:01",
+      "speaker": "Feste",
+      "text": "Come for the show. Stay because you verified it yourself."
+    },
+    {
+      "timecode": "06:05",
+      "speaker": "Feste",
+      "text": "I'm Feste."
+    },
+    {
+      "timecode": "06:05",
+      "speaker": "Ledger",
+      "text": "And I'm Ledger."
+    },
+    {
+      "timecode": "06:06",
+      "speaker": "Feste",
+      "text": "This has been Ring My Bell. Where the questions have teeth, the evidence gets a seat at the table, and nobody gets a free pass just because they own a microphone."
+    },
+    {
+      "timecode": "06:17",
+      "speaker": "Feste",
+      "text": "The truth never needed your permission."
+    }
+  ],
+  "editorial_analysis": "### Editorial Deconstruction: Welcome to the Circus. Bring Receipts.\n\n#### 1. The Record & Ledger's Facts (Receipts)\n- **The pipeline**: Seven stages — research, script, TTS, music, mix, metadata, cover art. The user supplies the topic; the machine does the legwork.\n- **The format**: Two permanent hosts, one fixed format. Feste (the Jester) and Ledger (the analyst) in dialogue — no callers, no guests, no rotating voices.\n- **The home**: buildwhilebleeding.com — the show lives there with the episodes, the code, and the receipts. Public repositories, linked sources.\n- **The caveat**: Automation doesn't guarantee accuracy. A polished voice and professional production can make a weak argument sound convincing — presentation is not proof.\n\n#### 2. The Jester's Translation (Incentive Topology)\n- **The pitch**: 'Bring us a topic and we'll see what it can withstand' — the show is a stress-test for claims, not a content mill.\n- **The two-voice trick**: Two voices yelling opposite things is a car alarm with a microphone. The point is pressure that makes the argument stronger — Ledger's discipline against Feste's heat.\n- **The business model**: There isn't one. Noncommercial. The ambition is that you leave with something better than the opinion you walked in with.\n\n#### 3. The Five-Beat Exchange Arc\n- **Beat 1**: Ledger establishes the record — the seven-stage pipeline, stated plainly.\n- **Beat 2**: Feste translates — 'seven steps, one finished show, fewer reasons to throw your phone.'\n- **Beat 3**: Ledger challenges — automation doesn't guarantee accuracy; confidence ain't evidence, and neither is skepticism alone.\n- **Beat 4**: Feste turns it — the show's value is what survives inspection, including the admission 'we don't know yet.'\n- **Beat 5**: Mutual concession — Ledger admits the last answer is often the most useful; Feste admits the ambition is all it is. For now.\n\n#### 4. Caller Dossier\n- No callers. The two hosts carry the episode — the format demonstration is the point.\n\n#### 5. The Closing Razor\n- *\"Where the questions have teeth, the evidence gets a seat at the table, and nobody gets a free pass just because they own a microphone. The truth never needed your permission.\"*"
+}

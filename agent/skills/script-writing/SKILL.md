@@ -1,16 +1,16 @@
 ---
 name: script-writing
-description: Deep pre-show editorial analysis, fact deconstruction, and radio script generation for Ring My Bell hosted by the Jester using the Interactions API.
+description: Generate the Ring My Bell show script from research using the Interactions API.
 ---
 
-# Script Writing & Editorial Deconstruction
+# Script Writing
 
-Generate a high-substance, multi-character radio show script with profound depth of thought. Before drafting any dialogue, the skill runs an extensive **pre-show editorial deconstruction** of the research material to build a verifiable fact matrix, map orthodoxies vs. counter-narratives, and design authentic caller foils.
+Generate a naturalistic two-host radio show script directly via the LLM. Every episode features the same two permanent hosts — Jester and Ledger — in dialogue, with advanced audio tags.
 
 ## Embedded Script
 
 ```bash
-python3 skills/script-writing/scripts/generate_script.py --workspace ./workspace --style debate
+python3 skills/script-writing/scripts/generate_script.py --workspace ./workspace
 ```
 
 ### Arguments
@@ -18,43 +18,43 @@ python3 skills/script-writing/scripts/generate_script.py --workspace ./workspace
 | Argument | Default | Description |
 |----------|---------|-------------|
 | `--workspace` | `workspace` | Root workspace directory |
-| `--style` | `default` | Show format (see styles below) |
-| `--context` | `""` | Additional tone/style notes inferred from user prompts. Applies to ALL styles. Keep brief. Do NOT use to specify stories/topics. |
 | `--duration` | `3` | Target duration in minutes |
+| `--context` | `""` | Additional tone/style notes inferred from user prompts (e.g., "emphasize the technical details", "make it sound like a late night show"). Keep brief. Do NOT use to specify stories/topics. |
 
-### Two-Phase Execution Workflow
+### Format
 
-1. **Phase 1: Deep Editorial Deconstruction & Material Thought**
-   - Synthesizes the raw research files in `{workspace}/data/research/*.md`.
-   - Produces `{workspace}/data/editorial_analysis.md` containing:
-     - **Fact Matrix & Verifiable Mechanics**: Key numbers, quotes, benchmarks, and architectural details separated from hype.
-     - **Conflict Map**: The orthodox narrative vs. failure modes, trade-offs, and systemic costs.
-     - **The Jester's Subversive Lens**: Exposing the central irony with theatrical bounce without losing factual nuance.
-     - **Caller Dossier & Counterpoints**: Dedicated profiles of 2-3 callers with distinct motivations and stubborn intellectual pushback.
-     - **Dramaturgical Arc**: Structured crescendo toward the sign-off.
+One format, every episode — the user supplies only the topic. The script always follows the same arc:
 
-2. **Phase 2: Dialogue Script Synthesis**
-   - Ingests both the primary research and `{workspace}/data/editorial_analysis.md`.
-   - Drafts the script with the Jester's anapestic cadence and opposing callers using `gemini-3-flash-preview` via the **Interactions API**.
-   - Outputs the final script to `{workspace}/data/script.md`.
+1. Cold Open — Jester teases the sharpest angle, bells ringing.
+2. Intro — the hosts welcome listeners and frame the topic.
+3. The Exchange — the five-beat exchange: Ledger establishes the record → Jester translates → Ledger challenges → Jester turns the evidence → one of them concedes.
+4. Closing — Jester signs off: "The truth never needed your permission."
 
-### Styles
+### Examples
 
-| Style | Callers | Format | Use when user says... |
-|-------|---------|--------|----------------------|
-| `debate` | 2 per topic, opposing views | Structured back-and-forth, Jester spars and referees | "opposing views", "debate", "both sides" |
-| `roundtable` | 3-4, different angles | Collaborative discussion, callers build on each other | "roundtable", "panel", "discussion" |
-| `interview` | 1-2 with direct experience | Q&A format, Jester probes with sharp wit | "interview", "deep dive", "expert" |
-| `explainer` | 2-3, each explains an aspect | Break down complexities, Jester cuts through the jargon | "explain", "break it down", "what is" |
-| `default` | Same as `debate` | Default when no style specified | *(anything else)* |
+```bash
+# Standard episode with context notes on tone
+python3 skills/script-writing/scripts/generate_script.py \
+  --workspace ./workspace --context "make it sound like a late night show"
+
+# Longer episode about a GitHub repo
+python3 skills/script-writing/scripts/generate_script.py \
+  --workspace ./workspace --duration 5 --context "emphasize the performance improvements"
+```
+
+### What it does
+
+1. Reads all research from `{workspace}/data/research/*.md`.
+2. Builds a system prompt with the base format rules + the fixed episode structure.
+3. Calls Gemini via the **Interactions API** (`client.interactions.create()`).
+4. Saves the script to `{workspace}/data/script.md`.
 
 ### Dependencies
 
 - `google-genai` (>= 2.0.0)
 
-## Outputs
+## Output
 
-- **Editorial Analysis**: `{workspace}/data/editorial_analysis.md`
 - **Script File**: `{workspace}/data/script.md`
 - **Format**: Plain text, each line starting with `Speaker: dialogue`
 
@@ -62,16 +62,13 @@ python3 skills/script-writing/scripts/generate_script.py --workspace ./workspace
 
 | Speaker | Role | Personality |
 |---------|------|-------------|
-| **Feste** (The Jester) | Host | Mischievous American licensed fool. Puck voice (clean studio). Carnival-barker bounce, anapestic meter, razor wit. |
-| **Ledger** | Co-Host | Calm institutionalist, keeper of the receipts. Charon voice (clean studio). Insists on facts, numbers, and fair analysis. |
-| **Callers** | Outside Foils | Authentic call-ins with real skin in the game (telephone audio filter). Provide ground-level resistance. |
+| **Jester** | Host (Feste) | The licensed fool — grinning, mischievous, theatrical truth-teller. Wacky, whimsical, bouncing. Amused, never outraged; zero deference, zero malice. Signature devices: "Let me translate" and the mirror. Signs off: "The truth never needed your permission." |
+| **Ledger** | Co-host | The analyst — keeper of the receipts. Calm, precise, good-faith institutionalist. Establishes the record, presents the strongest defense, corrects Jester when the evidence doesn't support the punchline. Never the villain, never the butt of the joke. |
 
 ## Script Format Rules
 
-- Host line: `Feste: [audio tag] Dialogue text` (or legacy `Jester:`)
-- Co-Host line: `Ledger: [audio tag] Dialogue text`
-- Caller line: `CallerName: [Male/Female] [Accent: <Region>] [audio tag] Dialogue text`
-- Must include audio tags in square brackets (e.g., `[grins]`, `[dryly]`, `[scoffs]`, `[chuckles]`).
-- The Five-Beat Exchange: Ledger establishes receipts -> Feste translates ("Let me translate...") -> Ledger challenges -> Feste exposes contradiction -> One concedes.
-- Spoken word with anapestic rhythm. No fake data.
-- Signature sign-off to close every broadcast verbatim: **"The truth never needed your permission."**
+- Every line: `Jester:` or `Ledger:` — the ONLY two speakers. Never invent callers, guests, or additional voices.
+- Must include audio tags in square brackets (e.g., `[sighs]`, `[excitedly]`, `[dryly]`). Jester's tags lean theatrical and bouncy; Ledger's lean dry and measured.
+- The five-beat exchange structures every episode: Ledger establishes the record → Jester translates → Ledger challenges → Jester turns the evidence → one of them concedes.
+- Short punchy sentences — spoken word, not prose.
+- ~450-500 words total (~3 minutes when spoken).

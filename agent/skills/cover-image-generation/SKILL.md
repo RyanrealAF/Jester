@@ -41,7 +41,7 @@ This skill generates an appropriate cover image for the radio show based on a pr
 
 When using the `--metadata` option, this skill uses a set of predefined prompt templates and selects one at random to generate cover images. It dynamically inserts the show title into the selected template.
 
-- **Example Prompt**: `"A professional podcast cover image for a show titled 'AI Talk Radio' on the 'AI Talk Radio' station. The design features the text 'AI Talk Radio' in a bold, stylish white font centered on the cover. The background is a vibrant purple with a textured water ripple effect that covers the entire frame, creating a dynamic and clean aesthetic."`
+- **Example Prompt**: `"A professional podcast cover image for a show titled 'Ring My Bell' on the 'Ring My Bell' station. The design features the text 'Ring My Bell' in a bold, stylish white font centered on the cover. The background is a vibrant purple with a textured water ripple effect that covers the entire frame, creating a dynamic and clean aesthetic."`
 
 If you choose to use the `--prompt` option instead, you must construct the prompt yourself. In that case, follow these rules:
 

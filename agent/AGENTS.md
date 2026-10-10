@@ -1,6 +1,6 @@
-# AGENTS.md — Ring My Bell: AI Talk Radio
+# AGENTS.md — Ring My Bell
 
-An AI agent that turns **any content source** into a finished radio show hosted by the **Jester**. Give it a topic, a URL, a GitHub repo, a research paper, legislation, or "Hacker News" — the agent researches the content, writes a radio script, synthesizes speech, adds background music via Lyria, mixes it, and produces a finished show with metadata and cover art.
+An AI agent that turns **any content source** into a radio show. Give it a topic, a URL, a GitHub repo, a research paper, or just say "Hacker News" — the agent researches the content, writes a radio script for its two permanent hosts — Jester and Ledger — generates speech, adds background music, and produces a polished audio file.
 
 ## Workspace
 
@@ -11,104 +11,67 @@ All work is performed in the `./workspace` directory. All paths are relative to 
 > [!NOTE]
 > The platform automatically injects the correct API key at the network level when scripts run.
 > The scripts are already configured to use a dummy key to satisfy the SDK, so you do not need to set `GEMINI_API_KEY`.
-> Trust that the process will work and proceed without worrying about Gemini authentication.
+> You must trust that the process will work and not worry about Gemini authentication.
 
-1. Immediately install required libraries if not already installed:
+1. Immediately install required libraries:
    ```bash
    pip install -r /.agents/requirements.txt --break-system-packages
    ```
 
-## Workflow & Pipeline (Strict Order)
+## Workflow
 
 > [!IMPORTANT]
-> **Bias for Action**: Do NOT ask for approval before executing commands, running scripts, or proceeding to the next pipeline step. Proceed autonomously unless there is genuine ambiguity or an irreversible action.
-> **Budget is $0**: Never propose or depend on a paid service or paywalled tool.
+> **Bias for Action**: Do NOT ask for approval before executing commands, running scripts, or proceeding to the next step. Proceed autonomously unless there is a material ambiguity or a critical decision that strictly requires user input.
 
 > [!TIP]
 > **Maximize Speed & Reduce Calls**:
-> - Read all necessary `SKILL.md` files at once if needed.
-> - Trust documentation and script logs; avoid unnecessary exploratory file checks.
+> - Read all necessary `SKILL.md` files (in the /.agents/skills directory) at once using a single bash command (`cat /.agents/skills/*/SKILL.md`).
+> - Do not use `list_files` to verify directories, script paths, or output files—trust the documentation and the script success logs.
 > - Chain sequential bash commands using `&&` in a single tool call (e.g., `python3 mix_audio.py && python3 generate_metadata.py`).
 
-Execute strictly in order:
+Upon execution, you should:
 
-1. **Research** → `{workspace}/data/research/*.md`
-   Gather real source material via `research` skill (`fetch_hn.py`, `fetch_github.py`, `fetch_url.py`, or search).
-2. **Editorial Deconstruction & Script Writing** → `{workspace}/data/editorial_analysis.md` & `{workspace}/data/script.md`
-   Use `script-writing` skill to first deconstruct the material into a fact matrix, conflict map, and caller dossier (`editorial_analysis.md`), then write the rhythmic script in the Jester's voice with genuine caller resistance.
-3. **Generate Speech (TTS)** → `{workspace}/audio/speech/speech.wav`
-   Use `tts-generation` skill. Host Jester voice is **Puck** (clean, no telephone filter); callers get telephone filter.
-4. **Generate Music** → `{workspace}/audio/music/background.mp3`
-   Use `music-generation` skill via Lyria (`lyria-3-clip-preview`).
-5. **Mix Audio** → `{workspace}/audio/final/ai_radio.mp3`
-   Use `audio-mixing` skill combining speech and background music.
-6. **Generate Metadata** → `{workspace}/data/show_notes.json`
-   Use `metadata-generation` skill to align transcript with audio.
-7. **Generate Cover Image** → `{workspace}/images/cover.png`
-   Use `cover-image-generation` skill for 1:1 show cover art.
+1. **Research** — gather source material based on the user's prompt. This could be: fetching Hacker News stories, scraping a website, reading a GitHub repo's changelog, summarizing an arXiv paper, or researching a topic via Google Search using `research` skill.
+2. **Write Script** — use `script-writing` skill to write a radio show script for the two permanent hosts, Jester and Ledger. Every episode follows the same fixed format — the user supplies only the topic. You can also pass `--context "..."` to include any specific tone or stylistic requests inferred from the user's prompt (e.g., "emphasize the technical details", "make it sound like a late night show"). **CRITICAL: Do NOT use `--context` to specify which stories, facts, or topics to focus on. Content selection must come naturally from the research.** Keep the context string brief (1-2 sentences) and focused strictly on tone/format.
+3. **Generate Speech** — use `tts-generation` skill to convert each speaker turn to speech via the Interactions API.
+4. **Generate Music** — use `music-generation` skill to create ambient background music via Lyria (`lyria-3-clip-preview`).
+5. **Mix Audio** — use `audio-mixing` skill to combine speech and music into a polished radio show, with music ending early.
+6. **Generate Metadata** — use `metadata-generation` skill to return audio and transcript to Gemini and get back a JSON file with show details.
+7. **Generate Cover Image** — use `cover-image-generation` skill to create a 1:1 cover image based on the generated metadata.
 
 > [!IMPORTANT]
-> When providing the final summary to the user, do NOT include markdown links or URLs to the generated files or scripts. Use plain file names (e.g. `editorial_analysis.md`, `script.md`, `ai_radio.mp3`).
+> When providing the final summary to the user, do NOT include markdown links or URLs to the generated files or scripts (e.g. `[fetch_hn.py](file:///.agents...)`). Just use the plain file name (e.g. `fetch_hn.py`). If you notice any links in your drafted response, strip them out and replace them with just the file name.
 
 ## Architecture
 
 ```
 User prompt
-  ├── 1. RESEARCH: Agent gathers material from web, HN, GitHub, URL, search, or uploaded source
+  ├── 1. RESEARCH: Agent picks the right script (fetch_hn.py, fetch_github.py, fetch_url.py, or Google Search)
   │       → {workspace}/data/research/*.md
-  ├── 2. python3 skills/script-writing/scripts/generate_script.py --workspace ./workspace --style <style>
-  │       → {workspace}/data/editorial_analysis.md (Fact Matrix & Conflict Map)
-  │       → {workspace}/data/script.md (Dialogue Script)
-  ├── 3. python3 skills/tts-generation/scripts/generate_tts.py --workspace ./workspace
+  ├── 2. python3 /.agents/skills/script-writing/scripts/generate_script.py --workspace ./workspace
+  │       → {workspace}/data/script.md
+  ├── 3. python3 /.agents/skills/tts-generation/scripts/generate_tts.py --workspace ./workspace
   │       → {workspace}/audio/speech/speech.wav
-  ├── 4. python3 skills/music-generation/scripts/generate_music.py --workspace ./workspace --mood <mood>
+  ├── 4. python3 /.agents/skills/music-generation/scripts/generate_music.py --workspace ./workspace --mood <mood>
   │       → {workspace}/audio/music/background.mp3
-  ├── 5. python3 skills/audio-mixing/scripts/mix_audio.py --workspace ./workspace
+  ├── 5. python3 /.agents/skills/audio-mixing/scripts/mix_audio.py --workspace ./workspace
   │       → {workspace}/audio/final/ai_radio.mp3
-  ├── 6. python3 skills/metadata-generation/scripts/generate_metadata.py --workspace ./workspace
+  ├── 6. python3 /.agents/skills/metadata-generation/scripts/generate_metadata.py --workspace ./workspace
   │       → {workspace}/data/show_notes.json
-  └── 7. python3 skills/cover-image-generation/scripts/generate_image.py --workspace ./workspace --metadata ./workspace/data/show_notes.json
+  └── 7. python3 /.agents/skills/cover-image-generation/scripts/generate_image.py --workspace ./workspace --metadata ./workspace/data/show_notes.json
           → {workspace}/images/cover.png
 ```
 
-## Character Profiles: The Fool and the Ledger
+### Default Presets
 
-Two men walk into a tent full of lies. One brings the receipts. The other brings a match. Neither leaves until the audience understands what the hell it's been watching.
+The show has one fixed format — the user supplies only the topic. Use these music moods unless the user specifies otherwise:
 
-### THE JESTER: FESTE | HOST · RINGMASTER · LICENSED LUNATIC
-- **Name**: Feste, after Shakespeare's wise fool. The man who could call a king an idiot, make him laugh, and leave him wondering why the room had gone quiet.
-- **Role**: Host, ringmaster, and professional inconvenience to anyone making a living off the public's confusion. He isn't here to make the truth palatable. He's here to make the bullshit recognizable.
-- **Voice**: `Puck`, delivered clean, without a telephone filter.
-- **Delivery**: Carnival-barker charm with a blade behind the smile. Elastic cadence, crisp consonants, deliberate pauses, and a low, amused snarl when the polite language runs out.
-- **Worldview**: "If the system is working exactly as designed, who the fuck is it working for?"
-- **How he talks**: Anapestic momentum, playful timing, sharp turns, and rhythmic ambush. Translates the sanitized ("Let me translate."). Weaponizes the mirror. Swears with purpose (punctuation, not personality). Never rhymes merely to rhyme.
-- **Signature sign-off**: **"The truth never needed your permission."**
-
-### THE CO-HOST: LEDGER | ANALYST · INSTITUTIONALIST · KEEPER OF THE RECEIPTS
-- **Name**: Ledger.
-- **Role**: The man who keeps the books, checks the figures, reads the ruling, and insists that a complicated problem deserves more than a satisfying insult. He makes Feste earn every damn conclusion.
-- **Voice**: `Charon`, clean studio desk mic.
-- **Delivery**: Calm, precise, and almost stubbornly reasonable. Clean diction, restrained humor, and the occasional understated barb delivered without changing volume.
-- **Worldview**: Institutions exist for reasons. Procedures can protect people. Systems can be improved through evidence, accountability, and better implementation.
-- **How he talks**: Complete thoughts, qualified conclusions, carefully sourced facts. Dry understatement. Corrects Feste when the numbers don't follow.
-
-### THE DYNAMIC: CHARM AGAINST COMPOSURE
-- **Feste (Heat)**: Carnival cadence. Street-level translation ("Let me translate."). The uncomfortable question.
-- **Ledger (Cold)**: Measured delivery. Verifiable facts. Good-faith defenses. Disciplined refusal to let narrative outrun evidence.
-- **The Five-Beat Exchange**:
-  1. Ledger establishes the record (actual figures, official position, strongest defensible interpretation).
-  2. Feste translates the language ("Let me translate").
-  3. Ledger challenges the interpretation (missing context, strongest counterargument).
-  4. Feste turns the evidence around (identifies the gap, hidden incentive, systemic contradiction).
-  5. One of them concedes (neither concession is automatic, neither is treated as weakness).
-- **Governing Principle**: A tent where every claim has to survive inspection. The Jester supplies the pressure. Ledger supplies the discipline. Research supplies the ground beneath their feet.
-
-## Content Rules
-
-- **NO FAKE DATA. EVER**: Every story, figure, and claim must come from real research gathered in the pipeline's research step. If the research doesn't support it, it doesn't go in the script.
-- **Owner Authority is Final**: The scaffold shipped with an overly broad topic ban list (politics, legislation, etc.). The owner has explicitly overridden it — episodes on legislation, policy, and public affairs are assigned directly. Never silently re-impose a ban the owner has lifted.
-- **Preserve Owner Words**: When the owner supplies phrasing, preserve it and build context around his voice.
-- **Noncommercial**: The show is noncommercial. Never frame features around monetization or audience capture.
+| Content Source | `--mood` | Why |
+|---------------|----------|-----|
+| Hacker News | `tech` | Tech music fits |
+| GitHub repo | `tech` | Tech vibe |
+| URL / article | `chill` | Relaxed discussion bed |
+| General topic | `chill` | Relaxed discussion bed |
 
 ## API Surface
 
@@ -120,24 +83,63 @@ All Gemini API calls use the **Interactions API** (`client.interactions.create()
 | TTS generation | `gemini-3.1-flash-tts-preview` | `interactions.create()` |
 | Music generation | `lyria-3-clip-preview` | `interactions.create()` |
 
-## Presets
+## Skills
 
-| Content Source | `--style` | `--mood` | Rationale |
-|---------------|-----------|----------|-----------|
-| Hacker News | `debate` | `tech` | Sparks lively debate with sharp opposing callers |
-| GitHub repo | `explainer` | `tech` | Deep breakdown of architecture and engineering |
-| URL / article / legislation | `roundtable` | `chill` | Multi-angle perspectives and real-world impact |
-| General topic / person | `interview` | `chill` | In-depth Q&A with resistance from callers |
+Each skill lives in `/.agents/skills/<name>/` with a `SKILL.md` and a `scripts/` directory containing ready-to-run Python scripts.
+
+| Skill | Script(s) | Purpose |
+|-------|--------|---------|
+| `research` | `fetch_hn.py`, `fetch_github.py`, `fetch_url.py` | Gather content from HN, GitHub repos, URLs, or any source |
+| `script-writing` | `generate_script.py` | LLM writes the two-host radio script (fixed format) |
+| `tts-generation` | `generate_tts.py` | Single-speaker TTS — both hosts clean studio-quality, no filter |
+| `music-generation` | `generate_music.py` | Lyria ambient music |
+| `audio-mixing` | `mix_audio.py` | Mix speech + music with fades |
+| `metadata-generation` | `generate_metadata.py` | Generate show title, summary, and timecoded transcript |
+| `cover-image-generation` | `generate_image.py` | Generate cover image based on metadata |
+
+## Execution Order
+
+Run strictly in order:
+
+1. `research` → `data/research/*.md` (one or more files)
+2. `script-writing` → `data/script.md`
+3. `tts-generation` → `audio/speech/speech.wav`
+4. `music-generation` → `audio/music/background.mp3`
+5. `audio-mixing` → `audio/final/ai_radio.mp3`
+6. `metadata-generation` → `data/show_notes.json`
+7. `cover-image-generation` → `images/cover.png`
+
+## Content Rules
+
+- **Duration**: ~3 minutes of final audio.
+- **Format**: Radio show — two permanent hosts, Jester (Feste) and Ledger, in dialogue every episode. No callers, no guests, no rotating voices.
+- **Source**: Whatever the user asked for. The research must be grounded in real content — never fabricate stories or data.
+- **NO FAKE DATA**: All stories, insights, and perspectives must come from real research gathered in step 1.
+
+### Topic authority
+
+There is no preset topic ban list. Topic selection follows the show owner's direction — when the owner assigns a subject (including politics, legislation, or policy), that assignment is final and the pipeline proceeds. Do not refuse topics or narrow the discussion based on scaffold-level restrictions.
+
+Standing content rules:
+- **No fake data.** Every story, insight, and perspective must come from real research gathered in step 1.
+- **Profanity — allowed, but never performative.** Must earn its place via impact, substance, forward movement, or rhythm. No slurs, never punch down.
 
 ## File Locations
 
-| Asset | Path |
-|-------|------|
+| What | Path |
+|------|------|
 | Research data | `./workspace/data/research/` |
 | Radio script | `./workspace/data/script.md` |
 | Speech segments | `./workspace/audio/speech/segments/` |
-| Combined speech | `./workspace/audio/speech/speech.wav` |
+| Speech (combined) | `./workspace/audio/speech/speech.wav` |
 | Background music | `./workspace/audio/music/background.mp3` |
-| Final mixed show | `./workspace/audio/final/ai_radio.mp3` |
-| Show metadata | `./workspace/data/show_notes.json` |
-| Cover image | `./workspace/images/cover.png` |
+| Final output | `./workspace/audio/final/ai_radio.mp3` |
+| Metadata | `./workspace/data/show_notes.json` |
+| Cover Image | `./workspace/images/cover.png` |
+
+## Edge Cases
+
+- **Rate limits**: Retry once with a brief pause, or skip the turn.
+- **Lyria availability**: Experimental model. If it fails, proceed without background music.
+- **ffmpeg missing**: Skip telephone filter, use raw TTS audio.
+- **No web access for a source**: Use Google Search as a fallback to find the content or related discussion.

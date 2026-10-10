@@ -41,43 +41,44 @@ warnings.filterwarnings("ignore", message="Interactions usage is experimental")
 
 # Voice mapping — each speaker gets a unique Gemini TTS voice
 VOICE_MAP = {
-    "Feste": "Puck",    # Host (The Jester) — clean studio Puck voice
-    "Jester": "Puck",   # Host alias
-    "Ledger": "Charon", # Co-host (The Analyst / Keeper of the Receipts)
-    "Paul": "Puck",     # Backward-compatibility fallback
+    "Jester": "Puck",     # Host — studio quality male voice
+    "Ledger": "Charon",   # Co-host — warm, measured male voice
 }
 
-FEMALE_VOICES = ["Kore", "Aoede"]
-MALE_VOICES = ["Charon", "Fenrir", "Puck"]
+# Speakers who get clean studio audio (no telephone filter).
+# The two hosts are kept at equal volume and quality — Ledger earned a
+# permanent chair, not a phone line.
+CLEAN_SPEAKERS = {"Jester", "Ledger"}
+
+# Fixed host voice assignments (never part of the caller round-robin)
+HOST_VOICES = {
+    "Jester": "Puck",
+    "Ledger": "Charon",
+}
+
+FEMALE_VOICES = ["Kore"]
+# Note: Charon is Ledger's voice and Puck is Jester's — neither is in the
+# caller rotation, so the hosts never share a voice with a caller.
+MALE_VOICES = ["Fenrir"]
 
 MAX_RETRIES = 3
 MAX_WORKERS = 8
 
 PROFILES = {
-    "Feste": {
-        "profile": "# AUDIO PROFILE: Feste (The Jester)\n## Role: Host · Ringmaster · Licensed Lunatic\n## Persona: Carnival-barker charm with a blade behind the smile. Elastic cadence, crisp consonants, deliberate pauses, and a low, amused snarl when the polite language runs out. American English.",
-        "scene": "## THE SCENE: Studio Broadcast Booth\nA professional broadcast booth with high-end condenser microphone. Speaking with high energy, anapestic bounce, and clean studio resonance.",
-        "notes": "### DIRECTOR'S NOTES\nStyle: Theatrical carnival-barker bounce, mischievous, grinning, sharp, rhythmic.\nPacing: Quick, bouncy, anapestic cadence, direct.\nAccent: American English.",
-    },
     "Jester": {
-        "profile": "# AUDIO PROFILE: Feste (The Jester)\n## Role: Host · Ringmaster · Licensed Lunatic\n## Persona: Carnival-barker charm with a blade behind the smile. Elastic cadence, crisp consonants, deliberate pauses, and a low, amused snarl when the polite language runs out. American English.",
-        "scene": "## THE SCENE: Studio Broadcast Booth\nA professional broadcast booth with high-end condenser microphone. Speaking with high energy, anapestic bounce, and clean studio resonance.",
-        "notes": "### DIRECTOR'S NOTES\nStyle: Theatrical carnival-barker bounce, mischievous, grinning, sharp, rhythmic.\nPacing: Quick, bouncy, anapestic cadence, direct.\nAccent: American English.",
+        "profile": "# AUDIO PROFILE: Jester\n## Role: Talk radio host — the licensed fool of the airwaves\n## Persona: Grinning, mischievous, theatrical truth-teller. Amused, never outraged; playful menace, delighted rather than angry. Wraps hard truths in wit.",
+        "scene": "## THE SCENE: The Studio\nA studio at night. Jester leans into a high-quality microphone, bells faintly jingling when he moves, a grin you can hear in his voice.",
+        "notes": "### DIRECTOR'S NOTES\nStyle: Wacky, whimsical, theatrical, bouncing — a vaudeville ringmaster's cadence. Elastic timing, big swings, playful snarls and delighted gasps; the grin is audible in every line. A storyteller's bounce with a mischievous edge. Never preachy, never cruel.\nPacing: Bouncy and elastic — rushes forward, halts on a dime, well-timed pauses before the punchline lands.\nAccent: American English.",
     },
     "Ledger": {
-        "profile": "# AUDIO PROFILE: Ledger (The Co-Host)\n## Role: Analyst · Institutionalist · Keeper of the Receipts\n## Persona: Warm, measured, and professionally composed. Calm, precise, and almost stubbornly reasonable. Clean diction, restrained humor, and the occasional understated barb delivered without changing volume.",
-        "scene": "## THE SCENE: Studio Co-Host Desk\nPermanent co-host chair in the studio. Clear, balanced broadcast desk microphone.",
-        "notes": "### DIRECTOR'S NOTES\nStyle: Calm, precise, stubbornly reasonable, dry understatement.\nPacing: Measured, steady, complete thoughts.\nAccent: American English.",
-    },
-    "Paul": {
-        "profile": "# AUDIO PROFILE: Feste (The Jester)\n## Role: Host\n## Persona: Mischievous licensed fool.",
-        "scene": "## THE SCENE: Studio Broadcast Booth\nStudio condenser microphone.",
-        "notes": "### DIRECTOR'S NOTES\nStyle: Sharp, rhythmic, American English.\nPacing: Dynamic.\nAccent: American English.",
+        "profile": "# AUDIO PROFILE: Ledger\n## Role: Co-host and analyst — the keeper of the receipts\n## Persona: Calm, precise, good-faith institutionalist. Warm and measured, dry understatement, stubbornly reasonable. The reasonable man who makes the Jester earn every conclusion.",
+        "scene": "## THE SCENE: The Studio\nLedger sits across from Jester in the same studio, evidence folders stacked neatly beside a broadcast microphone. Same room, same clean signal — a permanent chair, not a phone line.",
+        "notes": "### DIRECTOR'S NOTES\nStyle: Calm, precise, professionally composed. Clean diction, steady volume, restrained dry humor. The occasional understated barb, delivered without changing volume. Never shouts, never flusters.\nPacing: Measured and even — complete thoughts, qualified conclusions.\nAccent: American English.",
     },
     "default_caller": {
-        "profile": "# AUDIO PROFILE: Caller\n## Role: Caller into 'Ring My Bell'\n## Persona: Authentic caller defending their stance, rough, conversational, not a broadcaster.",
-        "scene": "## THE SCENE: Remote Location via Phone\nCalling in from a remote phone line.",
-        "notes": "### DIRECTOR'S NOTES\nStyle: Conversational, authentic, rough.\nPacing: Natural conversational pace.\nAccent: American English.",
+        "profile": "# AUDIO PROFILE: Caller\n## Role: Tech-savvy individual calling in to a radio show.\n## Persona: Nerdy, conversational, not a professional broadcaster.",
+        "scene": "## THE SCENE: Remote Location via Phone\nCalling in from a home, office, or public space. The audio quality is that of a telephone call.",
+        "notes": "### DIRECTOR'S NOTES\nStyle: Conversational, natural.\nPacing: Normal conversational pace.\nAccent: American English.",
     },
 }
 
@@ -201,8 +202,8 @@ def process_turn(client, turn_index, speaker, text, voice, accent, segments_dir,
         print(f"    [{turn_index}] ✗ All {MAX_RETRIES} attempts failed, skipping")
         return (turn_index, None)
 
-    # Studio desk mics (Feste, Ledger, Jester) are clean studio quality; outside callers get telephone filter
-    if speaker not in ("Feste", "Jester", "Ledger", "Paul"):
+    # Apply telephone filter to callers only — the hosts stay clean studio
+    if speaker not in CLEAN_SPEAKERS:
         try:
             apply_telephone_filter(raw_path, final_path, boost=boost)
             print(f"    [{turn_index}] ✓ {speaker} ({voice}) + telephone filter{' (boosted)' if boost else ''}")
@@ -238,8 +239,8 @@ def main():
     os.makedirs(segments_dir, exist_ok=True)
 
     # --- Phase 1: Parse all turns and assign voices (sequential) ---
-    assigned_voices = {"Feste": "Puck", "Jester": "Puck", "Ledger": "Charon", "Paul": "Puck"}
-    assigned_accents = {"Feste": "American English", "Jester": "American English", "Ledger": "American English", "Paul": "American English"}
+    assigned_voices = dict(HOST_VOICES)
+    assigned_accents = {speaker: "American English" for speaker in HOST_VOICES}
     female_index = 0
     male_index = 0
     prepared_turns = []

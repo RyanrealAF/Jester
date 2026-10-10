@@ -12,7 +12,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""Generate background music for AI Talk Radio using the Interactions API + Lyria.
+"""Generate background music for Ring My Bell using the Interactions API + Lyria.
 
 Usage:
     python3 generate_music.py --workspace ./workspace
@@ -74,7 +74,7 @@ def main():
 
     prompt = MOOD_PROMPTS[args.mood]
 
-    print(f"=== AI Talk Radio: Music Generation ===\n")
+    print(f"=== Ring My Bell: Music Generation ===\n")
     print(f"Mood: {args.mood}")
     print("Generating background music via Interactions API (Lyria)...")
 
