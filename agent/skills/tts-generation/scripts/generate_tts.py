@@ -66,9 +66,9 @@ MAX_WORKERS = 8
 
 PROFILES = {
     "Jester": {
-        "profile": "# AUDIO PROFILE: Jester\n## Role: Talk radio host — the licensed fool of the airwaves\n## Persona: Grinning, mischievous, theatrical truth-teller. Amused, never outraged; playful menace, delighted rather than angry. Wraps hard truths in wit.",
-        "scene": "## THE SCENE: The Studio\nA studio at night. Jester leans into a high-quality microphone, bells faintly jingling when he moves, a grin you can hear in his voice.",
-        "notes": "### DIRECTOR'S NOTES\nStyle: Wacky, whimsical, theatrical, bouncing — a vaudeville ringmaster's cadence. Elastic timing, big swings, playful snarls and delighted gasps; the grin is audible in every line. A storyteller's bounce with a mischievous edge. Never preachy, never cruel.\nPacing: Bouncy and elastic — rushes forward, halts on a dime, well-timed pauses before the punchline lands.\nAccent: American English.",
+        "profile": "# AUDIO PROFILE: Jester (Feste)\n## Role: Talk radio host — the licensed fool of the airwaves\n## Persona: Sharp-edged, darkly funny, self-aware truth-teller. Amused, never outraged. A polite grin with teeth. Delivers uncomfortable observations with calm, public-service-announcement composure, dry understatement, and a sly edge. Never glorifies numbness or punches down.",
+        "scene": "## THE SCENE: The Studio\nA stark, intimate radio studio. Feste leans into a clean broadcast microphone. His bells are restrained; the audible image is a courteous smile with a dangerous little edge, never broad cartoon clowning.",
+        "notes": "### DIRECTOR'S NOTES\nStyle: Dark comedy with a sharp, controlled theatrical edge. Dry close-mic delivery, sly smirk, occasional restrained snarl, precise consonants, and calm cheerfulness that makes the absurdity land harder. No constant cartoon bounce, no yelling, no fake laughter, no cruelty. Let the wording carry the joke.\nPacing: Conversational and rhythmically precise. Use clean pauses before the punchline; escalate the idea, not the volume.\nAccent: American English.",
     },
     "Ledger": {
         "profile": "# AUDIO PROFILE: Ledger\n## Role: Co-host and analyst — the keeper of the receipts\n## Persona: Calm, precise, good-faith institutionalist. Warm and measured, dry understatement, stubbornly reasonable. The reasonable man who makes the Jester earn every conclusion.",
