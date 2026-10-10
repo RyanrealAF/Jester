@@ -62,27 +62,27 @@ export function transformShow(raw: RawRadioShow): RadioShow {
 export const RAW_MOCK_SHOW: RawRadioShow = {
   "show_title": "Welcome to Ring My Bell: Please Manage Your Expectations",
   "show_duration": "03:25",
-  "two_sentence_summary": "Feste and Ledger introduce Ring My Bell, a research-first AI radio show that turns topics, URLs, papers, and GitHub repositories into a two-host discussion. Feste brings dark, self-aware comedy and a suspiciously cheerful approach to emotional damage; Ledger brings the receipts and keeps the jokes tethered to reality.",
+  "two_sentence_summary": "Feste and Ledger introduce Ring My Bell, a research-first AI radio show that turns topics, URLs, papers, and GitHub repositories into a two-host discussion. Feste brings a wacky, bouncing, whimsical delivery with a sharp edge beneath the grin; Ledger brings the receipts and keeps the jokes tethered to reality.",
   "date_of_generation": "2026-10-09",
   "coverImage": "/shows/ep001-welcome/cover.png",
   "audioUrl": "",
   "notesUrl": "/shows/ep001-welcome/show_notes.json",
-  "editorial_analysis": "### Editorial Deconstruction: Please Manage Your Expectations\n\n#### 1. The Record\nRing My Bell takes a user-supplied topic or source through research, editorial analysis, scriptwriting, voice synthesis, music, mixing, and packaging. The format uses two permanent hosts: Feste, the sharp-edged fool, and Ledger, the evidence-minded analyst.\n\n#### 2. Feste's Translation\nFeste treats emotional absurdity like a public-service announcement. The calm delivery is the joke; the self-awareness keeps it from turning into a lecture. He can roast his own coping habits, but does not present numbness as enlightenment or make medication the target.\n\n#### 3. The Five-Beat Exchange\nLedger establishes the process. Feste translates it into plain language. Ledger checks the exaggeration. Feste turns the mirror toward the claims and the people making them. They concede where the evidence demands it.\n\n#### 4. Editorial Boundary\nA funny line is not proof. A polished voice is not proof. The show researches first, distinguishes fact from inference, and lets uncertainty remain visible.\n\n#### 5. Closing Razor\nThe circus is open. Bring a claim, a question, or a shiny new certainty. We'll see what survives inspection. The truth never needed your permission.",
+  "editorial_analysis": "### Editorial Deconstruction: Please Manage Your Expectations\n\n#### 1. The Record\nRing My Bell takes a user-supplied topic or source through research, editorial analysis, scriptwriting, voice synthesis, music, mixing, and packaging. The format uses two permanent hosts: Feste, the sharp-edged fool, and Ledger, the evidence-minded analyst.\n\n#### 2. Feste's Translation\nFeste delivers emotional absurdity with a bouncing, sing-song carnival-barker lilt. The buoyant performance makes the uncomfortable truth hit harder; the self-awareness keeps it from turning into a lecture. He roasts his own coping habits without presenting numbness as enlightenment or making medication the target.\n\n#### 3. The Five-Beat Exchange\nLedger establishes the process. Feste translates it into plain language. Ledger checks the exaggeration. Feste turns the mirror toward the claims and the people making them. They concede where the evidence demands it.\n\n#### 4. Editorial Boundary\nA funny line is not proof. A polished voice is not proof. The show researches first, distinguishes fact from inference, and lets uncertainty remain visible.\n\n#### 5. Closing Razor\nThe circus is open. Bring a claim, a question, or a shiny new certainty. We'll see what survives inspection. The truth never needed your permission.",
   "timecoded_transcript": [
     {
       "timecode": "00:02",
       "speaker": "Feste",
-      "text": "Hello, humans! I'm a human too. Needs, flaws, questionable coping strategies. The whole deluxe package. Please remain calm."
+      "text": "Hello, hello, hello, you beautiful bags of unresolved issues! Ring-a-ding, humans! I'm a human too. Needs, feelings, resentments... the whole deluxe variety pack. Please keep your arms and expectations inside the ride."
     },
     {
       "timecode": "00:15",
       "speaker": "Ledger",
-      "text": "That is an unusual introduction to a research-driven radio show."
+      "text": "That is an unusually lively introduction to a research-driven radio show."
     },
     {
       "timecode": "00:20",
       "speaker": "Feste",
-      "text": "I'm easing you in, Ledger. I survive on low expectations and resentment. It's a highly efficient system, provided nobody expects emotional customer service."
+      "text": "Lively? My dear Ledger, I'm a spring-loaded filing cabinet in a jester's hat! I run on low expectations and resentment. Wind me up, I go \"hee!\" Let me down, I write a complaint."
     },
     {
       "timecode": "00:34",
@@ -92,17 +92,17 @@ export const RAW_MOCK_SHOW: RawRadioShow = {
     {
       "timecode": "00:39",
       "speaker": "Feste",
-      "text": "Neither is pretending everything's wonderful, but look how many apps offer that feature."
+      "text": "Sustainable? No, darling! But neither is pretending everything's peachy while the kitchen's on fire. Still, look at all the apps selling peach-colored smoke."
     },
     {
       "timecode": "00:47",
       "speaker": "Ledger",
-      "text": "And the point of this is to introduce Ring My Bell, not to recommend emotional disengagement as a lifestyle."
+      "text": "And the point is to introduce Ring My Bell, not recommend emotional disengagement as a lifestyle."
     },
     {
       "timecode": "00:55",
       "speaker": "Feste",
-      "text": "Correct. This is satire, not a treatment plan. My emotional department is understaffed, underfunded, and currently investigating a missing fuck to give."
+      "text": "Correctamundo! This is satire, not a treatment plan. My emotional department is understaffed, underfunded, and investigating a missing damn to give. If found, please do not return it. I have no storage."
     },
     {
       "timecode": "01:08",
@@ -112,17 +112,17 @@ export const RAW_MOCK_SHOW: RawRadioShow = {
     {
       "timecode": "01:20",
       "speaker": "Feste",
-      "text": "Seven stages. Research, analysis, script, voices, music, mix, and packaging. You bring the question. The machine does the legwork. Allegedly. We still inspect the work."
+      "text": "Seven little stages! Research, analysis, script, voices, music, mix, packaging. You bring the question, the machine does the legwork. Allegedly! We still check the work, because a robot in a waistcoat is still a robot."
     },
     {
       "timecode": "01:34",
       "speaker": "Ledger",
-      "text": "That last point matters. Automation can make mistakes, and confident delivery does not make a claim accurate."
+      "text": "That matters. Automation can make mistakes, and confident delivery does not make a claim accurate."
     },
     {
       "timecode": "01:42",
       "speaker": "Feste",
-      "text": "Exactly. A machine can put on a tiny suit, say therefore, and confidently explain why your bad idea is actually a disruptive paradigm. Confidence ain't evidence, sweetheart."
+      "text": "Precisely! A machine puts on a tiny waistcoat, says \"therefore,\" and explains why your bad idea is a disruptive paradigm. Ta-da! The hat is fancy, the evidence is missing, and the invoice has legs."
     },
     {
       "timecode": "01:55",
@@ -132,7 +132,7 @@ export const RAW_MOCK_SHOW: RawRadioShow = {
     {
       "timecode": "02:03",
       "speaker": "Feste",
-      "text": "Look at that. A responsible adult in the room. We keep Ledger around so my punchlines don't escape custody before the facts get checked."
+      "text": "Look at him! A responsible adult with receipts! We keep Ledger around so my punchlines don't escape custody before the facts are checked. He has a clipboard. I have bells. Guess who gets searched at the door."
     },
     {
       "timecode": "02:14",
@@ -142,7 +142,7 @@ export const RAW_MOCK_SHOW: RawRadioShow = {
     {
       "timecode": "02:25",
       "speaker": "Feste",
-      "text": "And mine is to translate the official language, inspect the incentives, and hold the mirror steady. Sometimes the mirror catches a contradiction. Sometimes it catches me being full of it. That's the service."
+      "text": "And mine is to translate the official language, inspect the incentives, and hold up the mirror. Sometimes it catches a contradiction. Sometimes it catches me being full of it. A versatile mirror! Five stars. Terrible lighting."
     },
     {
       "timecode": "02:40",
@@ -152,7 +152,7 @@ export const RAW_MOCK_SHOW: RawRadioShow = {
     {
       "timecode": "02:48",
       "speaker": "Feste",
-      "text": "Bring a claim, a controversy, a website, a paper, or a repository. Bring the shiny promise and the fine print. We'll examine both. No guaranteed revelations. No emotional refunds."
+      "text": "Bring a claim, a controversy, a website, a paper, a repository! Bring the shiny promise and the teeny-tiny fine print! We'll inspect both. No guaranteed revelations. No emotional refunds. Please collect your dignity at the exit."
     },
     {
       "timecode": "03:03",
@@ -162,12 +162,12 @@ export const RAW_MOCK_SHOW: RawRadioShow = {
     {
       "timecode": "03:09",
       "speaker": "Feste",
-      "text": "Beautiful. Uncertainty: the one subscription nobody remembers signing up for."
+      "text": "Uncertainty! The one subscription nobody remembers signing up for. It renews automatically, naturally. Isn't life a treat?"
     },
     {
       "timecode": "03:17",
       "speaker": "Feste",
-      "text": "I'm Feste."
+      "text": "I'm Feste. Your licensed fool. Bells included. Wisdom sold separately."
     },
     {
       "timecode": "03:19",
@@ -177,7 +177,7 @@ export const RAW_MOCK_SHOW: RawRadioShow = {
     {
       "timecode": "03:21",
       "speaker": "Feste",
-      "text": "This is Ring My Bell. The truth never needed your permission."
+      "text": "This is Ring My Bell! Mind the gap between the promise and the proof, my darlings. The truth never needed your permission."
     }
   ]
 };
