@@ -5,8 +5,9 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    // GitHub Pages serves this project under /Jester/, not the domain root.
-    base: '/Jester/',
+    // Relative base so the app works under any subpath (GitHub Pages /Jester/,
+    // Cloudflare Pages root, and the buildwhilebleeding.com/jester/ reverse proxy).
+    base: './',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
