@@ -5,6 +5,7 @@ export interface RawTranscriptLine {
 }
 
 export interface RawRadioShow {
+  slug?: string; // URL slug for deep-linking, e.g. "ep001-welcome"
   show_title: string;
   show_duration: string; // "MM:SS"
   two_sentence_summary: string;
@@ -25,6 +26,7 @@ export interface TranscriptLine {
 
 export interface RadioShow {
   title: string;
+  slug: string; // URL slug for deep-linking, e.g. "ep001-welcome"
   duration: number;
   summary: string;
   date: string;

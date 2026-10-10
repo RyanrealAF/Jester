@@ -40,7 +40,16 @@ import {
   ChevronRight,
   BookOpen
 } from 'lucide-react';
-import { RAW_MOCK_SHOW, MOCK_SHOW, transformShow } from './data';
+import { ALL_SHOWS } from './data';
+
+// Resolve the episode named by ?ep=<slug>, if any.
+function episodeFromUrl(): RadioShow | null {
+  try {
+    const slug = new URLSearchParams(window.location.search).get('ep');
+    if (slug) return ALL_SHOWS.find(ep => ep.slug === slug) || null;
+  } catch { /* non-browser or malformed URL */ }
+  return null;
+}
 import { RadioShow } from './types';
 import { saveUserShow, getUserShows, deleteUserShow } from './lib/clientDb';
 
@@ -167,15 +176,15 @@ export default function App() {
   const generationIdRef = useRef<string | null>(null);
 
   // Library & selected episode
-  const [episodes, setEpisodes] = useState<RadioShow[]>([MOCK_SHOW]);
-  const [currentEpisode, setCurrentEpisode] = useState<RadioShow>(MOCK_SHOW);
+  const [episodes, setEpisodes] = useState<RadioShow[]>(ALL_SHOWS);
+  const [currentEpisode, setCurrentEpisode] = useState<RadioShow>(() => episodeFromUrl() || ALL_SHOWS[0]);
   const [showArchiveModal, setShowArchiveModal] = useState(false);
 
   // Player state & views
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(MOCK_SHOW.duration || 285);
+  const [duration, setDuration] = useState((episodeFromUrl() || ALL_SHOWS[0]).duration || 285);
   const [volume, setVolume] = useState(0.85);
   const [isMuted, setIsMuted] = useState(false);
   const [playbackSpeed, setPlaybackSpeed] = useState<number>(1.0);
@@ -189,7 +198,7 @@ export default function App() {
       try {
         const saved = await getUserShows();
         if (saved && saved.length > 0) {
-          const allShows = [...saved, MOCK_SHOW];
+          const allShows = [...saved, ...ALL_SHOWS];
           const unique = allShows.filter((s, idx, arr) => arr.findIndex(x => x.title === s.title) === idx);
           setEpisodes(unique);
         }
@@ -299,6 +308,10 @@ export default function App() {
     setDuration(ep.duration || 285);
     setShowArchiveModal(false);
     setActiveTab('player');
+    // Give every episode its own link — the share button copies this URL.
+    try {
+      window.history.replaceState(null, '', `?ep=${encodeURIComponent(ep.slug)}`);
+    } catch { /* ignore */ }
   };
 
   const handleDeleteEpisode = async (title: string, e: React.MouseEvent) => {
@@ -306,9 +319,9 @@ export default function App() {
     try {
       await deleteUserShow(title);
       const remaining = episodes.filter(ep => ep.title !== title);
-      setEpisodes(remaining.length > 0 ? remaining : [MOCK_SHOW]);
+      setEpisodes(remaining.length > 0 ? remaining : ALL_SHOWS);
       if (currentEpisode.title === title) {
-        setCurrentEpisode(remaining.length > 0 ? remaining[0] : MOCK_SHOW);
+        setCurrentEpisode(remaining.length > 0 ? remaining[0] : ALL_SHOWS[0]);
       }
     } catch (err) {
       console.error("Failed to delete episode:", err);
