@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
+<title id="title">Ring My Bell: Under the Umbrella</title>
+<desc id="desc">A brass handbell beneath a dark theatrical umbrella, with Build While Bleeding and Ring My Bell typography.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111214"/><stop offset="1" stop-color="#292725"/></linearGradient>
+  <linearGradient id="brass" x1="0" y1="0" x2="0.9" y2="1"><stop offset="0" stop-color="#f1d49a"/><stop offset="0.5" stop-color="#ad7b39"/><stop offset="1" stop-color="#65441e"/></linearGradient>
+</defs>
+<rect width="1200" height="1200" fill="url(#bg)"/>
+<circle cx="600" cy="435" r="300" fill="none" stroke="#6f2926" stroke-width="2" opacity=".65"/>
+<path d="M260 395 Q600 100 940 395 Q860 370 800 425 Q730 365 660 425 Q600 365 535 425 Q450 365 390 425 Q325 370 260 395Z" fill="#18191a" stroke="#9a713c" stroke-width="5"/>
+<path d="M600 392 L600 485" stroke="url(#brass)" stroke-width="14" stroke-linecap="round"/>
+<path d="M515 530 Q515 450 600 450 Q685 450 685 530 L718 582 Q600 620 482 582Z" fill="url(#brass)" stroke="#f2d7a0" stroke-width="5"/>
+<path d="M475 584 Q600 625 725 584 L725 608 Q600 655 475 608Z" fill="#8c5b29" stroke="#d8b16b" stroke-width="4"/>
+<circle cx="600" cy="630" r="20" fill="#caa05b"/>
+<text x="600" y="750" fill="#f0e7d5" font-family="Georgia,serif" font-size="76" text-anchor="middle" letter-spacing="8">RING MY BELL</text>
+<text x="600" y="823" fill="#c8a66d" font-family="Arial,sans-serif" font-size="35" text-anchor="middle" letter-spacing="9">EPISODE 001</text>
+<text x="600" y="885" fill="#f0e7d5" font-family="Arial,sans-serif" font-size="46" font-weight="700" text-anchor="middle" letter-spacing="4">UNDER THE UMBRELLA</text>
+<path d="M260 930 H940" stroke="#6f2926" stroke-width="4"/>
+<text x="600" y="985" fill="#b8b0a2" font-family="Arial,sans-serif" font-size="29" text-anchor="middle" letter-spacing="7">BUILD WHILE BLEEDING</text>
+</svg>
