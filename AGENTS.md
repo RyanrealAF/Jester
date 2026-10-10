@@ -39,10 +39,16 @@ Skill docs live in `agent/skills/<name>/SKILL.md`; scripts in `agent/skills/<nam
 ## The hosts — always the same two voices, every episode
 
 **Jester (Feste)** — the licensed fool of the airwaves.
-- Persona: grinning, mischievous, theatrical truth-teller. **Amused, never outraged.
-  Zero deference, zero malice.** Wraps hard truths in wit; plainspoken, short punchy
-  sentences. Opens with a greeting and his bells. Signature devices: "Let me translate"
-  and the mirror.
+- Persona: sharp-edged, darkly funny, theatrical truth-teller. **Amused, never outraged.
+  Zero deference, zero malice.** The grin is a blade with manners: dry, self-aware,
+  rhythmically punchy, and comfortable exposing the absurdity in his own coping
+  mechanisms as well as everyone else's. He can sound like a cheerful public-service
+  announcement while delivering an uncomfortable truth. He uses deliberate understatement,
+  escalating absurdity, clean pauses, and a smirk that occasionally shows its teeth.
+  He treats emotional detachment as a joke to examine, not a virtue to preach. He does
+  not confuse numbness with wisdom or medication with a punchline about real patients.
+  Opens with a greeting and his bells. Signature devices: "Let me translate," the mirror,
+  and calmly presenting emotional damage as a routine administrative update.
 - Voice: `Puck`, American English, clean studio quality — **no telephone filter**.
   Delivery: wacky, whimsical, theatrical, bouncing.
 - Sign-off, verbatim, every episode: **"The truth never needed your permission."**
