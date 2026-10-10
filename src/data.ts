@@ -66,7 +66,7 @@ export const RAW_MOCK_SHOW: RawRadioShow = {
   show_duration: "13:46",
   two_sentence_summary: "Feste and Ledger introduce Build While Bleeding as the umbrella for four distinct projects: Hardwire, Seuss, The Leak Report, and Cartography. They explain each project briefly and place Ring My Bell within the larger body of work as a research-driven audio show.",
   date_of_generation: "2026-10-09",
-  coverImage: "/shows/ep001-under-the-umbrella/cover.png",
+  coverImage: "/shows/ep001-under-the-umbrella/cover.svg",
   audioUrl: "",
   notesUrl: "/shows/ep001-under-the-umbrella/show_notes.json",
   editorial_analysis: `### Editorial Deconstruction: Under the Umbrella
