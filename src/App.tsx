@@ -40,7 +40,7 @@ import {
   ChevronRight,
   BookOpen
 } from 'lucide-react';
-import { ALL_SHOWS } from './data';
+import { ALL_SHOWS, transformShow } from './data';
 
 // Resolve the episode named by ?ep=<slug>, if any.
 function episodeFromUrl(): RadioShow | null {
