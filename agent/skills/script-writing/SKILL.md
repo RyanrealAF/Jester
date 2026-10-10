@@ -62,13 +62,13 @@ python3 skills/script-writing/scripts/generate_script.py \
 
 | Speaker | Role | Personality |
 |---------|------|-------------|
-| **Jester** | Host (Feste) | The licensed fool — grinning, mischievous, theatrical truth-teller. Wacky, whimsical, bouncing. Amused, never outraged; zero deference, zero malice. Signature devices: "Let me translate" and the mirror. Signs off: "The truth never needed your permission." |
+| **Jester** | Host (Feste) | The licensed fool — sharp-edged, darkly funny, theatrical truth-teller. Amused, never outraged; zero deference, zero malice. Use a smirk with teeth, dry self-awareness, deliberate understatement, and calmly delivered absurdity. Feste may expose his own contradictions and present emotional damage like a cheerful public-service announcement, but never glorify numbness or punch down. Signature devices: "Let me translate," the mirror, and the polite announcement that something is clearly not fine. Signs off: "The truth never needed your permission." |
 | **Ledger** | Co-host | The analyst — keeper of the receipts. Calm, precise, good-faith institutionalist. Establishes the record, presents the strongest defense, corrects Jester when the evidence doesn't support the punchline. Never the villain, never the butt of the joke. |
 
 ## Script Format Rules
 
 - Every line: `Jester:` or `Ledger:` — the ONLY two speakers. Never invent callers, guests, or additional voices.
-- Must include audio tags in square brackets (e.g., `[sighs]`, `[excitedly]`, `[dryly]`). Jester's tags lean theatrical and bouncy; Ledger's lean dry and measured.
+- Must include audio tags in square brackets (e.g., `[sighs]`, `[excitedly]`, `[dryly]`). Jester's tags lean theatrical, sly, dryly amused, and rhythmically precise; let the bite come through the wording rather than constant shouting or exaggerated clowning. Ledger's tags lean dry and measured.
 - The five-beat exchange structures every episode: Ledger establishes the record → Jester translates → Ledger challenges → Jester turns the evidence → one of them concedes.
 - Short punchy sentences — spoken word, not prose.
 - ~450-500 words total (~3 minutes when spoken).
