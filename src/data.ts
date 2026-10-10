@@ -61,128 +61,49 @@ export function transformShow(raw: RawRadioShow): RadioShow {
 }
 
 export const RAW_MOCK_SHOW: RawRadioShow = {
-  "slug": "ep001-welcome",
-  "show_title": "Welcome to Ring My Bell: Please Manage Your Expectations",
-  "show_duration": "03:25",
-  "two_sentence_summary": "Feste and Ledger introduce Ring My Bell, a research-first AI radio show that turns topics, URLs, papers, and GitHub repositories into a two-host discussion. Feste brings a wacky, bouncing, whimsical delivery with a sharp edge beneath the grin; Ledger brings the receipts and keeps the jokes tethered to reality.",
-  "date_of_generation": "2026-10-09",
-  "coverImage": "/shows/ep001-welcome/cover.png",
-  "audioUrl": "",
-  "notesUrl": "/shows/ep001-welcome/show_notes.json",
-  "editorial_analysis": "### Editorial Deconstruction: Please Manage Your Expectations\n\n#### 1. The Record\nRing My Bell takes a user-supplied topic or source through research, editorial analysis, scriptwriting, voice synthesis, music, mixing, and packaging. The format uses two permanent hosts: Feste, the sharp-edged fool, and Ledger, the evidence-minded analyst.\n\n#### 2. Feste's Translation\nFeste delivers emotional absurdity with a bouncing, sing-song carnival-barker lilt. The buoyant performance makes the uncomfortable truth hit harder; the self-awareness keeps it from turning into a lecture. He roasts his own coping habits without presenting numbness as enlightenment or making medication the target.\n\n#### 3. The Five-Beat Exchange\nLedger establishes the process. Feste translates it into plain language. Ledger checks the exaggeration. Feste turns the mirror toward the claims and the people making them. They concede where the evidence demands it.\n\n#### 4. Editorial Boundary\nA funny line is not proof. A polished voice is not proof. The show researches first, distinguishes fact from inference, and lets uncertainty remain visible.\n\n#### 5. Closing Razor\nThe circus is open. Bring a claim, a question, or a shiny new certainty. We'll see what survives inspection. The truth never needed your permission.",
-  "timecoded_transcript": [
-    {
-      "timecode": "00:02",
-      "speaker": "Feste",
-      "text": "Hello, hello, hello, you beautiful bags of unresolved issues! Ring-a-ding, humans! I'm a human too. Needs, feelings, resentments... the whole deluxe variety pack. Please keep your arms and expectations inside the ride."
-    },
-    {
-      "timecode": "00:15",
-      "speaker": "Ledger",
-      "text": "That is an unusually lively introduction to a research-driven radio show."
-    },
-    {
-      "timecode": "00:20",
-      "speaker": "Feste",
-      "text": "Lively? My dear Ledger, I'm a spring-loaded filing cabinet in a jester's hat! I run on low expectations and resentment. Wind me up, I go \"hee!\" Let me down, I write a complaint."
-    },
-    {
-      "timecode": "00:34",
-      "speaker": "Ledger",
-      "text": "Resentment is not generally considered a sustainable operating model."
-    },
-    {
-      "timecode": "00:39",
-      "speaker": "Feste",
-      "text": "Sustainable? No, darling! But neither is pretending everything's peachy while the kitchen's on fire. Still, look at all the apps selling peach-colored smoke."
-    },
-    {
-      "timecode": "00:47",
-      "speaker": "Ledger",
-      "text": "And the point is to introduce Ring My Bell, not recommend emotional disengagement as a lifestyle."
-    },
-    {
-      "timecode": "00:55",
-      "speaker": "Feste",
-      "text": "Correctamundo! This is satire, not a treatment plan. My emotional department is understaffed, underfunded, and investigating a missing damn to give. If found, please do not return it. I have no storage."
-    },
-    {
-      "timecode": "01:08",
-      "speaker": "Ledger",
-      "text": "Ring My Bell takes a topic, article, research paper, or GitHub repository and builds a structured discussion from researched material."
-    },
-    {
-      "timecode": "01:20",
-      "speaker": "Feste",
-      "text": "Seven little stages! Research, analysis, script, voices, music, mix, packaging. You bring the question, the machine does the legwork. Allegedly! We still check the work, because a robot in a waistcoat is still a robot."
-    },
-    {
-      "timecode": "01:34",
-      "speaker": "Ledger",
-      "text": "That matters. Automation can make mistakes, and confident delivery does not make a claim accurate."
-    },
-    {
-      "timecode": "01:42",
-      "speaker": "Feste",
-      "text": "Precisely! A machine puts on a tiny waistcoat, says \"therefore,\" and explains why your bad idea is a disruptive paradigm. Ta-da! The hat is fancy, the evidence is missing, and the invoice has legs."
-    },
-    {
-      "timecode": "01:55",
-      "speaker": "Ledger",
-      "text": "Skepticism is not evidence either. Both the claim and the criticism need support."
-    },
-    {
-      "timecode": "02:03",
-      "speaker": "Feste",
-      "text": "Look at him! A responsible adult with receipts! We keep Ledger around so my punchlines don't escape custody before the facts are checked. He has a clipboard. I have bells. Guess who gets searched at the door."
-    },
-    {
-      "timecode": "02:14",
-      "speaker": "Ledger",
-      "text": "My job is to establish what the sources support, identify uncertainty, and challenge your interpretation when it outruns the record."
-    },
-    {
-      "timecode": "02:25",
-      "speaker": "Feste",
-      "text": "And mine is to translate the official language, inspect the incentives, and hold up the mirror. Sometimes it catches a contradiction. Sometimes it catches me being full of it. A versatile mirror! Five stars. Terrible lighting."
-    },
-    {
-      "timecode": "02:40",
-      "speaker": "Ledger",
-      "text": "The goal is not manufactured outrage. It is a clearer view of the question and the evidence."
-    },
-    {
-      "timecode": "02:48",
-      "speaker": "Feste",
-      "text": "Bring a claim, a controversy, a website, a paper, a repository! Bring the shiny promise and the teeny-tiny fine print! We'll inspect both. No guaranteed revelations. No emotional refunds. Please collect your dignity at the exit."
-    },
-    {
-      "timecode": "03:03",
-      "speaker": "Ledger",
-      "text": "And if the evidence does not settle the question, we will say so."
-    },
-    {
-      "timecode": "03:09",
-      "speaker": "Feste",
-      "text": "Uncertainty! The one subscription nobody remembers signing up for. It renews automatically, naturally. Isn't life a treat?"
-    },
-    {
-      "timecode": "03:17",
-      "speaker": "Feste",
-      "text": "I'm Feste. Your licensed fool. Bells included. Wisdom sold separately."
-    },
-    {
-      "timecode": "03:19",
-      "speaker": "Ledger",
-      "text": "I'm Ledger."
-    },
-    {
-      "timecode": "03:21",
-      "speaker": "Feste",
-      "text": "This is Ring My Bell! Mind the gap between the promise and the proof, my darlings. The truth never needed your permission."
-    }
+  slug: "ep001-under-the-umbrella",
+  show_title: "Under the Umbrella",
+  show_duration: "13:46",
+  two_sentence_summary: "Feste and Ledger introduce Build While Bleeding as the umbrella for four distinct projects: Hardwire, Seuss, The Leak Report, and Cartography. They explain each project briefly and place Ring My Bell within the larger body of work as a research-driven audio show.",
+  date_of_generation: "2026-10-09",
+  coverImage: "/shows/ep001-under-the-umbrella/cover.png",
+  audioUrl: "",
+  notesUrl: "/shows/ep001-under-the-umbrella/show_notes.json",
+  editorial_analysis: `### Editorial Deconstruction: Under the Umbrella
+
+#### The umbrella
+Build While Bleeding is the larger home for distinct projects. The umbrella is not a claim that every project is finished or that all projects should be merged into one application.
+
+#### The four projects
+- **Hardwire:** Practical music theory for rappers, beatmakers, and self-taught producers. Method: FEEL, MAP, CONTROL.
+- **Seuss:** Rhythm, meter, cadence, syncopation, rhyme patterns, and language in hip-hop.
+- **The Leak Report:** Examines communication, assumptions, claims, context, and evidence.
+- **Cartography:** Preserves music, lyrics, writing, and documents as a creative and narrative archive.
+
+#### Ring My Bell's place
+Ring My Bell turns topics and source material into researched, two-host talk-radio episodes. Feste challenges and translates; Ledger establishes what the evidence supports and identifies uncertainty.
+
+#### Editorial boundary
+A difficult origin or polished presentation is not proof of quality. Each project must stand on its own merits. The common thread is useful work, careful examination, and preservation.`,
+  timecoded_transcript: [
+    { timecode: "00:01", speaker: "Feste", text: "Ring-a-ding-DING, you curious creatures! Step right up! Come one, come all! Bring your questions, bring your doubts, bring that suspicious little eyebrow you've been saving for a special occasion!" },
+    { timecode: "00:18", speaker: "Feste", text: "Welcome to Ring My Bell, where curiosity gets a front-row seat, assumptions get their pockets checked, and the fool has somehow been trusted with the microphone!" },
+    { timecode: "00:30", speaker: "Feste", text: "I'm Feste! Your licensed fool, your unofficial tour guide, and the only man alive who can lose his train of thought while standing on the platform!" },
+    { timecode: "00:40", speaker: "Ledger", text: "And I'm Ledger." },
+    { timecode: "00:44", speaker: "Ledger", text: "Today, we're introducing the larger project behind this show: Build While Bleeding." },
+    { timecode: "00:53", speaker: "Feste", text: "Build While Bleeding! Not Build While Comfortable. The work can happen while life is difficult, uncertain, and unfinished." },
+    { timecode: "01:40", speaker: "Ledger", text: "First, Hardwire. Hardwire focuses on making music theory practical for rappers, beatmakers, and self-taught producers. Its teaching method is simple: FEEL, MAP, CONTROL." },
+    { timecode: "03:00", speaker: "Ledger", text: "Next is Seuss. Seuss explores the deeper structures of rhythm and language in hip-hop, including meter, cadence, syncopation, rhyme patterns, and the mechanics that make words work rhythmically." },
+    { timecode: "04:25", speaker: "Ledger", text: "The Leak Report examines communication, looking at messages, assumptions, and the dynamics that influence how people interpret what they hear." },
+    { timecode: "05:45", speaker: "Ledger", text: "Cartography is a creative and narrative archive. It preserves music, lyrics, writing, and documents connected to the development of the wider body of work." },
+    { timecode: "07:10", speaker: "Ledger", text: "The projects don't need to perform the same function to belong together. Their connection is the larger body of work they're part of, along with a shared intention to develop ideas, make them useful, examine them carefully, and preserve what gets created." },
+    { timecode: "08:30", speaker: "Feste", text: "A good name doesn't make a bad idea good. A website doesn't automatically make a tool useful. And a beautifully organized archive can still contain a terrible song." },
+    { timecode: "09:35", speaker: "Ledger", text: "Build While Bleeding describes an approach to the work, not a claim that the work is complete or that difficult circumstances automatically make an idea valuable." },
+    { timecode: "10:45", speaker: "Ledger", text: "Ring My Bell is another project within the wider picture. It uses research, analysis, dialogue, synthetic voices, music, and audio production to turn subjects into finished talk-radio episodes." },
+    { timecode: "11:40", speaker: "Feste", text: "Ledger establishes what the evidence supports. I poke at the gaps, translate the jargon, and challenge the conclusions. Sometimes he catches me reaching too far. Sometimes I find a question the first explanation forgot to answer." },
+    { timecode: "12:45", speaker: "Feste", text: "Build while bleeding. Think while building. And never confuse the roof with the things you're building beneath it. Come curious. Leave a little harder to fool. Follow the noise. It's probably me." }
   ]
-};
+};;
 
 export const MOCK_SHOW: RadioShow = transformShow(RAW_MOCK_SHOW);
 export const RAW_AUDIT_SHOW: RawRadioShow = {
